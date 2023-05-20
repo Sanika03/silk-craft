@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+.navHeader {
+    background-color: #F9D6D9;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 4px 6px -6px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+}
+
+.titleName {
+    font-family: 'Dancing Script', cursive;
+    font-size: 23px;
+    flex-grow: 1;
+}
+
+.inputDiv {
+    flex-grow: 1;
+}
+
+.navDiv {
+    justify-content: flex-end;
+}
+
+.input {
+    font-family: 'Lato', sans-serif;
+    width: 60%;
+    height: 2.3rem;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.homeIcon {
+    width: 1.8rem
+}
+
+.productsIcon {
+    width: 1.7rem
+}
+
+.wishlistIcon {
+    width: 2.3rem
+}
+
+.cartIcon {
+    width: 2rem
+}
+
+.profileIcon {
+    width: 1.5rem
+}
+
+img {
+    padding: 0 10px;
+}
