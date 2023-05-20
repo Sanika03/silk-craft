@@ -6,7 +6,7 @@ export const Navigation = () => {
     return (
         <>
             <nav className="navHeader">
-                <div className="titleName">
+            <div className="titleName">
                     <h1>SilkCraft</h1>
                 </div>
                 <div className="inputDiv">
