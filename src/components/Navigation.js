@@ -1,28 +1,25 @@
-import { Home } from "../backend/pages/home";
-import { ProductListing } from "../backend/pages/productListing";
-import { Wishlist } from "../backend/pages/wishlist";
-import { Cart } from "../backend/pages/cart";
-import { Profile } from "../backend/pages/profile";
-import { NavLink, Route, Routes } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+import "../styles/navigation.css"
 
 export const Navigation = () => {
     return (
         <>
-            <nav>
-                <NavLink to="/">Home</NavLink> |
-                | <NavLink to="/products">Products</NavLink> |
-                | <NavLink to="/wishlist">Wishlist</NavLink> |
-                | <NavLink to="/cart">Cart</NavLink> |
-                | <NavLink to="/profile">Profile</NavLink> |
+            <nav className="navHeader">
+                <div className="titleName">
+                    <h1>SilkCraft</h1>
+                </div>
+                <div className="inputDiv">
+                    <input type="search" placeholder="🔍 Search" className="input"></input>
+                </div>
+                <div className="navDiv">
+                    <NavLink to="/"><img className="homeIcon" src="/images/icons/home.png" /></NavLink>
+                    <NavLink to="/products"><img className="productsIcon" src="/images/icons/products.png" /></NavLink>
+                    <NavLink to="/wishlist"><img className="wishlistIcon" src="/images/icons/wishlist.png" /></NavLink> 
+                    <NavLink to="/cart"><img className="cartIcon" src="/images/icons/cart.png" /></NavLink>
+                    <NavLink to="/profile"><img className="profileIcon" src="/images/icons/profile.png" /></NavLink>
+                </div>
             </nav>
-
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/products" element={<ProductListing />} />
-                <Route path="/wishlist" element={<Wishlist />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/profile" element={<Profile />} />
-            </Routes>
         </>
     )
 }
