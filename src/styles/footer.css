@@ -25,6 +25,10 @@
     flex-grow: 1;
     text-align: center;
   }
+
+  .titleSection {
+    padding: 4rem 0;
+  }
   
   .quickLinksList {
     list-style-type: none;
