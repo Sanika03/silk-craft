@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+
+.footerContainer {
+    background-color: #F9D6D9;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 20px;
+    box-shadow: 0 -4px 6px -6px rgba(0, 0, 0, 0.5);
+  }
+  
+  .footerTitle {
+    font-family: 'Lato', sans-serif;
+    font-size: 23px;
+  }
+
+  .appName {
+    font-family: "Dancing Script", cursive;
+  }
+  
+  .quickLinksSection,
+  .connectSection {
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .quickLinksList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .quickLinksList li {
+    margin-bottom: 10px;
+  }
+  
+  .quickLinksList a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .titleSection {
+    text-align: center;
+  }
+  
+  .tagline {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .socialIcons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    margin-left: 48%;
+  }
+  
+  .socialIcon {
+    font-size: 1.5rem;
+    margin-top: 5px;
+    color: #000;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .socialIcon:hover {
+    color: #555;
+  }
+  
