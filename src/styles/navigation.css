@@ -34,27 +34,8 @@
     border-radius: 5px;
 }
 
-.homeIcon {
-    width: 1.8rem;
-    padding: 0 10px;
-}
-
-.productsIcon {
-    width: 1.7rem;
-    padding: 0 10px;
-}
-
-.wishlistIcon {
-    width: 2.3rem;
-    padding: 0 10px;
-}
-
-.cartIcon {
-    width: 2rem;
-    padding: 0 10px;
-}
-
-.profileIcon {
-    width: 1.5rem;
-    padding: 0 10px;
+.navIcon {
+    font-size: 1.5rem;
+    padding: 10px;
+    color: black;
 }
