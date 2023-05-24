@@ -9,21 +9,17 @@ export const categories = [
   {
     _id: uuid(),
     categoryName: "saree",
-    description: "",
   },
   {
     _id: uuid(),
     categoryName: "lehenga",
-    description: "",
   },
   {
     _id: uuid(),
     categoryName: "dupatta",
-    description: "",
   },
   {
     _id: uuid(),
     categoryName: "kurti",
-    description: "",
   }
 ];
