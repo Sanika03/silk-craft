@@ -125,7 +125,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Red Paithani Upada Silk Lehenga",
+    title: "Red Paithani Silk Lehenga",
     description: "Paithani Silk Un-stitched lehenga embroidered with floral & cultural motif embellishments",
     price: "30600",
     categoryName: "lehenga",
