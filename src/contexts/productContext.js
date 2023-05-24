@@ -27,6 +27,7 @@ export const ProductProvider = ({ children }) => {
     <ProductContext.Provider
       value={{
         products,
+        setProducts,
         item,
         setItem,
         cartItems,
