@@ -1,47 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+.productPage {
+  display: flex;
+}
+
+.filterDiv {
+  flex-basis: 30%; 
+  font-family: 'Lato', sans-serif;
+  text-align: left;
+  padding: 1rem;
+  margin-top: 11.5rem;
+  border: 1px solid gray;
+  height: 50%;
+}
+
 .product-container {
   font-family: 'Lato', sans-serif;
   text-align: left;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  row-gap: 10px;
-  grid-gap: 10px;
-  max-width: 50%;
-  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 70%; 
+  padding: 1rem;
   margin: 10rem 0 0;
+  justify-content: center;
 }
 
 .product-item {
-  max-width: 100%;
+  width: 15rem; 
   display: flex;
-  flex-direction: row;
-  align-items: flex-start; 
-  justify-content: space-between;
+  flex-direction: column;
   padding: 10px;
-  position: relative; 
-  flex-wrap: wrap;
+  position: relative;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .productImage {
-  width: 180px;
-  height: 250px; 
+  width: 218px;
+  height: 270px;
   object-fit: cover;
-}
-
-.priceText {
-  margin-right: auto;
-}
-
-.ratingText {
-  margin-left: auto;
 }
 
 .text {
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
-  display: flex;
+}
+
+.priceText {
+  display: inline-block;
+  position: relative;
+  right: 10;
+}
+
+.ratingText {
+  display: inline-block;
+  position: absolute;
+  right: 1rem;
+  margin-top: 0.4rem;
 }
 
 .button {
@@ -50,15 +66,15 @@
 
 .wishlistButton {
   position: absolute;
-  bottom: 8.6rem; 
-  left: 0.64rem;
-  width: calc(100% - 1.34rem); 
-  height: 2.2rem;
+  bottom: 7.4rem;
+  left: 0.6rem;
+  width: 13.65rem;
   opacity: 0;
   transition: opacity 0.3s ease;
   background-color: white;
   color: black;
   border: 1.5px solid;
+  height: 2.2rem;
 }
 
 .product-item:hover .wishlistButton {
@@ -76,10 +92,24 @@
   height: 2.2rem;
   background-color: white;
   color: black;
-  border: 1.5px solid ;
+  border: 1.5px solid;
 }
 
 .cartButton:hover {
+  color: white;
+  background-color: black;
+}
+
+.clearFilterButton {
+  height: 2rem;
+  width: 110px;
+  position: relative;
+  background-color: white;
+  color: black;
+  border: 1.5px solid;
+}
+
+.clearFilterButton:hover {
   color: white;
   background-color: black;
 }
