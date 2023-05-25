@@ -18,53 +18,13 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Rani Pink Paithani Silk Dupatta",
-    description: "Handwoven Silk Paithani Dupatta with Zari Bootis all over & Traditional Border in Contrast Colour on the Two Long Sides with Pallu in Hastkala Peacockl Motif",
-    price: "11000",
-    categoryName: "dupatta",
-    imageLink: "/images/dupatta/dupatta2.webp",
+    title: "Bottle Green Paithani Silk Saree",
+    description: "Zari Woven Traditional Paithani Silk",
+    price: "5100",
+    categoryName: "saree",
+    imageLink: "/images/saree/saree3.webp",
     toggleButton: false, 
-    rating: 4.2
-  },
-  {
-    _id: uuid(),
-    title: "Magenta Paithani Silk Dupatta",
-    description: "Handwoven Silk Paithani Dupatta with Zari Bootis all over & Traditional Border in Contrast Colour on the Two Long Sides with Pallu in Hastkala Peacockl Motif",
-    price: "14000",
-    categoryName: "dupatta",
-    imageLink: "/images/dupatta/dupatta3.webp",
-    toggleButton: false, 
-    rating: 4.7
-  },
-  {
-    _id: uuid(),
-    title: "Violet Paithani Silk Dupatta",
-    description: "Handwoven Silk Paithani Dupatta with Zari Bootis all over & Traditional Border on the Two Long Sides with Pallu in Hastkala Peacockl Motif",
-    price: "16000",
-    categoryName: "dupatta",
-    imageLink: "/images/dupatta/dupatta4.webp",
-    toggleButton: false, 
-    rating: 2.9
-  },
-  {
-    _id: uuid(),
-    title: "Pista Green Paithani Silk Dupatta",
-    description: "Handwoven Silk Paithani Dupatta with Zari Stripes all over & Brocade Border of Single Muniya on the Two Long Sides with Pallu in Hastakala Floral Motif",
-    price: "16000",
-    categoryName: "dupatta",
-    imageLink: "/images/dupatta/dupatta5.webp",
-    toggleButton: false, 
-    rating: 3.8
-  },
-  {
-    _id: uuid(),
-    title: "Rani Pink Paithani Silk Salwar suit",
-    description: "Beautiful suit Jacquard Paithani Salwar suit with Zari Work",
-    price: "2500",
-    categoryName: "kurti",
-    imageLink: "/images/kurti/kurti1.jpg",
-    toggleButton: false, 
-    rating: 4.5
+    rating: 4.1 
   },
   {
     _id: uuid(),
@@ -78,24 +38,44 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Dark Green Paithani Silk Salwar suit",
-    description: "Jacquard Paithani and Zari Work Un-stitched Salwar suit dress",
-    price: "2820",
-    categoryName: "kurti",
-    imageLink: "/images/kurti/kurti3.webp",
+    title: "Peach Paithani Silk Lehenga",
+    description: "Paithani Silk Un-stitched lehenga embroidered with floral & cultural motif embellishments",
+    price: "26500",
+    categoryName: "lehenga",
+    imageLink: "/images/lehenga/lehenga4.webp",
     toggleButton: false, 
-    rating: 3.6
+    rating: 4.4 
   },
   {
     _id: uuid(),
-    title: "Light Pink Paithani Silk Salwar suit",
-    description: "Paithani and Zari Work Un-stitched Salwar suit dress",
-    price: "3200",
-    categoryName: "kurti",
-    imageLink: "/images/kurti/kurti5.webp",
+    title: "Pista Green Paithani Silk Dupatta",
+    description: "Handwoven Silk Paithani Dupatta with Zari Stripes all over & Brocade Border of Single Muniya on the Two Long Sides with Pallu in Hastakala Floral Motif",
+    price: "16000",
+    categoryName: "dupatta",
+    imageLink: "/images/dupatta/dupatta5.webp",
     toggleButton: false, 
-    rating: 4
+    rating: 1.8
   },
+  {
+    _id: uuid(),
+    title: "Red Paithani Silk Saree",
+    description: "Zari Woven Traditional Paithani Silk",
+    price: "5900",
+    categoryName: "saree",
+    imageLink: "/images/saree/saree2.webp",
+    toggleButton: false, 
+    rating: 3.1 
+  },
+  {
+    _id: uuid(),
+    title: "Violet Paithani Silk Dupatta",
+    description: "Handwoven Silk Paithani Dupatta with Zari Bootis all over & Traditional Border on the Two Long Sides with Pallu in Hastkala Peacockl Motif",
+    price: "16000",
+    categoryName: "dupatta",
+    imageLink: "/images/dupatta/dupatta4.webp",
+    toggleButton: false, 
+    rating: 2.9
+  }, 
   {
     _id: uuid(),
     title: "Cream White Paithani Lehenga",
@@ -108,23 +88,43 @@ export const products = [
   },
   {
     _id: uuid(),
+    title: "Magenta Paithani Silk Dupatta",
+    description: "Handwoven Silk Paithani Dupatta with Zari Bootis all over & Traditional Border in Contrast Colour on the Two Long Sides with Pallu in Hastkala Peacockl Motif",
+    price: "14000",
+    categoryName: "dupatta",
+    imageLink: "/images/dupatta/dupatta3.webp",
+    toggleButton: false, 
+    rating: 4.7
+  },
+  {
+    _id: uuid(),
     title: "Pista Green Paithani Silk Lehenga",
     description: "Paithani Silk Un-stitched lehenga embroidered with floral & cultural motif embellishments",
     price: "31300",
     categoryName: "lehenga",
     imageLink: "/images/lehenga/lehenga2.webp",
     toggleButton: false, 
-    rating: 4.6
+    rating: 5
   },
   {
     _id: uuid(),
-    title: "Peach Paithani Silk Lehenga",
-    description: "Paithani Silk Un-stitched lehenga embroidered with floral & cultural motif embellishments",
-    price: "26500",
-    categoryName: "lehenga",
-    imageLink: "/images/lehenga/lehenga4.webp",
+    title: "Rani Pink Paithani Silk Salwar suit",
+    description: "Beautiful suit Jacquard Paithani Salwar suit with Zari Work",
+    price: "2500",
+    categoryName: "kurti",
+    imageLink: "/images/kurti/kurti1.jpg",
     toggleButton: false, 
-    rating: 4.4 
+    rating: 4.5
+  },
+  {
+    _id: uuid(),
+    title: "Light Pink Paithani Silk Salwar suit",
+    description: "Paithani and Zari Work Un-stitched Salwar suit dress",
+    price: "3200",
+    categoryName: "kurti",
+    imageLink: "/images/kurti/kurti5.webp",
+    toggleButton: false, 
+    rating: 4
   },
   {
     _id: uuid(),
@@ -158,23 +158,13 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Red Paithani Silk Saree",
-    description: "Zari Woven Traditional Paithani Silk",
-    price: "5900",
-    categoryName: "saree",
-    imageLink: "/images/saree/saree2.webp",
+    title: "Dark Green Paithani Silk Salwar suit",
+    description: "Jacquard Paithani and Zari Work Un-stitched Salwar suit dress",
+    price: "2820",
+    categoryName: "kurti",
+    imageLink: "/images/kurti/kurti3.webp",
     toggleButton: false, 
-    rating: 3.1 
-  },
-  {
-    _id: uuid(),
-    title: "Bottle Green Paithani Silk Saree",
-    description: "Zari Woven Traditional Paithani Silk",
-    price: "5100",
-    categoryName: "saree",
-    imageLink: "/images/saree/saree3.webp",
-    toggleButton: false, 
-    rating: 4.1 
+    rating: 1.3
   },
   {
     _id: uuid(),
@@ -185,6 +175,16 @@ export const products = [
     imageLink: "/images/saree/saree4.webp",
     toggleButton: false, 
     rating: 4.7 
+  },
+  {
+    _id: uuid(),
+    title: "Rani Pink Paithani Silk Dupatta",
+    description: "Handwoven Silk Paithani Dupatta with Zari Bootis all over & Traditional Border in Contrast Colour on the Two Long Sides with Pallu in Hastkala Peacockl Motif",
+    price: "11000",
+    categoryName: "dupatta",
+    imageLink: "/images/dupatta/dupatta2.webp",
+    toggleButton: false, 
+    rating: 5
   },
   {
     _id: uuid(),
