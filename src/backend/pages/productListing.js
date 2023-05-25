@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 
 import { ProductContext } from "../../contexts/productContext";
 import { categories } from "../db/categories";
+import { useNavigate } from "react-router-dom";
 
 export const ProductListing = () => {
   const {
@@ -16,12 +17,19 @@ export const ProductListing = () => {
     setWishlistItems,
   } = useContext(ProductContext);
   const [filter, setFilter] = useState({ category: [], rating: 0 });
-  const [sortOption, setSortOption] = useState("");
-  // const [sortedProducts, setSortedProducts] = useState([...products])
+
+  const navigate = useNavigate();
 
   const handleSingleProductClick = (product) => setItem(product);
 
-  const handleAddToCart = (product) => setCartItems([...cartItems, product]);
+  const handleAddToCart = (product) => {
+    if (product.toggleButton === false) {
+      setCartItems([...cartItems, product]);
+      product.toggleButton = true;
+    } else if (product.toggleButton === true) {
+      navigate("/cart") ;
+    }
+  }
 
   const handleAddToWishlist = (product) =>
     setWishlistItems([...wishlistItems, product]);
@@ -102,7 +110,7 @@ export const ProductListing = () => {
   const showProducts = () => (
     <div className="product-container">
       {ratingFilteredProducts.map((product) => {
-        const { id, title, price, imageLink, rating } = product;
+        const { id, title, price, imageLink, rating, toggleButton } = product;
         return (
           <div key={id} onClick={() => handleSingleProductClick(product)} className="product-item">
             <img src={imageLink} alt={title} className="productImage"/>
@@ -112,7 +120,7 @@ export const ProductListing = () => {
               <p className="text ratingText">{rating} ⭐</p>
              </div>
             <button onClick={() => handleAddToCart(product)} className="button cartButton">
-              Add to Cart
+              {toggleButton === false ? "Add to Cart" : "Go to Cart"}
             </button>
             <button onClick={() => handleAddToWishlist(product)} className="button wishlistButton">
               Add to wishlist
