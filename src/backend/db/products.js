@@ -13,6 +13,7 @@ export const products = [
     price: "28000",
     categoryName: "dupatta",
     imageLink: "/images/dupatta/dupatta1.webp",
+    toggleButton: false, 
     rating: 3.5
   },
   {
@@ -22,6 +23,7 @@ export const products = [
     price: "11000",
     categoryName: "dupatta",
     imageLink: "/images/dupatta/dupatta2.webp",
+    toggleButton: false, 
     rating: 4.2
   },
   {
@@ -31,6 +33,7 @@ export const products = [
     price: "14000",
     categoryName: "dupatta",
     imageLink: "/images/dupatta/dupatta3.webp",
+    toggleButton: false, 
     rating: 4.7
   },
   {
@@ -40,6 +43,7 @@ export const products = [
     price: "16000",
     categoryName: "dupatta",
     imageLink: "/images/dupatta/dupatta4.webp",
+    toggleButton: false, 
     rating: 2.9
   },
   {
@@ -49,6 +53,7 @@ export const products = [
     price: "16000",
     categoryName: "dupatta",
     imageLink: "/images/dupatta/dupatta5.webp",
+    toggleButton: false, 
     rating: 3.8
   },
   {
@@ -58,6 +63,7 @@ export const products = [
     price: "2500",
     categoryName: "kurti",
     imageLink: "/images/kurti/kurti1.jpg",
+    toggleButton: false, 
     rating: 4.5
   },
   {
@@ -67,6 +73,7 @@ export const products = [
     price: "4200",
     categoryName: "kurti",
     imageLink: "/images/kurti/kurti2.jpg",
+    toggleButton: false, 
     rating: 3
   },
   {
@@ -76,6 +83,7 @@ export const products = [
     price: "2820",
     categoryName: "kurti",
     imageLink: "/images/kurti/kurti3.webp",
+    toggleButton: false, 
     rating: 3.6
   },
   {
@@ -85,6 +93,7 @@ export const products = [
     price: "3200",
     categoryName: "kurti",
     imageLink: "/images/kurti/kurti5.webp",
+    toggleButton: false, 
     rating: 4
   },
   {
@@ -94,6 +103,7 @@ export const products = [
     price: "29000",
     categoryName: "lehenga",
     imageLink: "/images/lehenga/lehenga1.webp",
+    toggleButton: false, 
     rating: 2.9 
   },
   {
@@ -103,6 +113,7 @@ export const products = [
     price: "31300",
     categoryName: "lehenga",
     imageLink: "/images/lehenga/lehenga2.webp",
+    toggleButton: false, 
     rating: 4.6
   },
   {
@@ -112,6 +123,7 @@ export const products = [
     price: "26500",
     categoryName: "lehenga",
     imageLink: "/images/lehenga/lehenga4.webp",
+    toggleButton: false, 
     rating: 4.4 
   },
   {
@@ -121,6 +133,7 @@ export const products = [
     price: "24900",
     categoryName: "lehenga",
     imageLink: "/images/lehenga/lehenga5.webp",
+    toggleButton: false, 
     rating: 3.3
   },
   {
@@ -130,6 +143,7 @@ export const products = [
     price: "30600",
     categoryName: "lehenga",
     imageLink: "/images/lehenga/lehenga6.webp",
+    toggleButton: false, 
     rating: 2.8 
   },
   {
@@ -139,6 +153,7 @@ export const products = [
     price: "6200",
     categoryName: "saree",
     imageLink: "/images/saree/saree1.webp",
+    toggleButton: false, 
     rating: 4.9
   },
   {
@@ -148,6 +163,7 @@ export const products = [
     price: "5900",
     categoryName: "saree",
     imageLink: "/images/saree/saree2.webp",
+    toggleButton: false, 
     rating: 3.1 
   },
   {
@@ -157,6 +173,7 @@ export const products = [
     price: "5100",
     categoryName: "saree",
     imageLink: "/images/saree/saree3.webp",
+    toggleButton: false, 
     rating: 4.1 
   },
   {
@@ -166,6 +183,7 @@ export const products = [
     price: "6800",
     categoryName: "saree",
     imageLink: "/images/saree/saree4.webp",
+    toggleButton: false, 
     rating: 4.7 
   },
   {
@@ -175,6 +193,7 @@ export const products = [
     price: "5900",
     categoryName: "saree",
     imageLink: "/images/saree/saree5.jpeg",
+    toggleButton: false, 
     rating: 3.4 
   },
 ];
