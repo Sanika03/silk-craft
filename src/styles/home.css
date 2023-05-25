@@ -1,0 +1,13 @@
+.mainDiv {
+    margin-top: 10rem;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+}
+  
+video {
+    height: 350px;
+    transition: all 0.3s ease;
+}
