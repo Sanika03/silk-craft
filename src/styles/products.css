@@ -31,9 +31,9 @@
   flex-direction: column;
   padding: 10px;
   position: relative;
-  margin-bottom: 1rem;
+  margin: 0 1rem 1rem 1rem;
   justify-content: space-between;
-  box-sizing: border-box;
+  box-sizing: border-box
 }
 
 .productImage {
@@ -60,6 +60,10 @@
   margin-top: 0.4rem;
 }
 
+.titleText {
+  font-weight: bold;
+}
+
 .button {
   margin: 3px 0;
 }
@@ -81,6 +85,11 @@
   opacity: 1;
 }
 
+.product-item:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  transform: translateY(-4px);
+}
+
 .wishlistButton:hover {
   color: white;
   background-color: black;
@@ -93,6 +102,11 @@
   background-color: white;
   color: black;
   border: 1.5px solid;
+}
+
+.cartIcon {
+  font-size: 1.1rem;
+  padding: 0 5px;
 }
 
 .cartButton:hover {
