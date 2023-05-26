@@ -1,5 +1,5 @@
 .mainDiv {
-    margin-top: 10rem;
+    margin-top: 8rem;
 }
 
 .video-container {
@@ -10,4 +10,16 @@
 video {
     height: 350px;
     transition: all 0.3s ease;
+}
+
+.quote-container {
+    background-color: rgb(232, 232, 232);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    margin: 3rem 0;
+}
+
+.quote-text {
+    font-style: italic
 }
