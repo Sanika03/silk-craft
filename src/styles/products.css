@@ -49,8 +49,15 @@
 
 .priceText {
   display: inline-block;
-  position: relative;
-  right: 10;
+  font-size: 15px;
+}
+
+.discountedPriceText {
+  display: inline-block;
+  margin: 0 0.4rem;
+  color: #5A5A5A;
+  font-size: 13px;
+  text-decoration: line-through red 1px;
 }
 
 .ratingText {
@@ -58,10 +65,12 @@
   position: absolute;
   right: 1rem;
   margin-top: 0.4rem;
+  font-size: 15px;
 }
 
 .titleText {
   font-weight: bold;
+  letter-spacing: 0.2px;
 }
 
 .button {
@@ -70,7 +79,7 @@
 
 .wishlistButton {
   position: absolute;
-  bottom: 7.4rem;
+  bottom: 7.3rem;
   left: 0.6rem;
   width: 13.65rem;
   opacity: 0;
@@ -105,7 +114,7 @@
 }
 
 .cartIcon {
-  font-size: 1.1rem;
+  font-size: 1rem;
   padding: 0 5px;
 }
 
