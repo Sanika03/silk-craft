@@ -17,7 +17,8 @@ export const Home = () => {
         setIsHovered(false);
     };
 
-    const getVideo = () => <div className="video-container">
+    const getVideo = () =>  (
+        <div className="video-container">
             <video
             className={`video ${isHovered ? "hovered" : null}`}
             src="/images/homeVideo.mp4"
@@ -26,12 +27,22 @@ export const Home = () => {
             ref={videoRef}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            ></video>
+            />
         </div>
+    )
+
+    const getQuote = () => (
+        <div className="quote-container">
+            <p className="quote-text">
+                "Tradition is the heartbeat of a culture, passing down stories, values, and craftsmanship from one generation to another."
+            </p>
+        </div>
+    )
 
     return (
         <div className="mainDiv">
             {getVideo()}
+            {getQuote()}
         </div>
     )
 }
