@@ -113,13 +113,14 @@ export const ProductListing = () => {
   const showProducts = () => (
     <div className="product-container">
       {ratingFilteredProducts.map((product) => {
-        const { id, title, price, imageLink, rating, toggleButton } = product;
+        const { id, title, price, discountedPrice, imageLink, rating, toggleButton } = product;
         return (
           <div key={id} onClick={() => handleSingleProductClick(product)} className="product-item">
             <img src={imageLink} alt={title} className="productImage"/>
-            <p className="text titleText">{title.length > 31 ? `${title.slice(0, 28)}...` : title}</p>
+            <p className="text titleText">{title.length > 27 ? `${title.slice(0, 26)}...` : title}</p>
              <div>
               <p className="text priceText">Rs. {price}</p>
+              <p className="text discountedPriceText">Rs. {discountedPrice}</p>
               <p className="text ratingText">{rating} ⭐</p>
              </div>
             <button onClick={() => handleAddToCart(product)} className="button cartButton">
