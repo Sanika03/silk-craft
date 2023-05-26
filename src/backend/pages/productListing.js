@@ -1,10 +1,13 @@
-import "../../styles/products.css";
-
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import "../../styles/products.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 import { ProductContext } from "../../contexts/productContext";
 import { categories } from "../db/categories";
-import { useNavigate } from "react-router-dom";
+
 
 export const ProductListing = () => {
   const {
@@ -114,16 +117,22 @@ export const ProductListing = () => {
         return (
           <div key={id} onClick={() => handleSingleProductClick(product)} className="product-item">
             <img src={imageLink} alt={title} className="productImage"/>
-            <p className="text">{title.length > 31 ? `${title.slice(0, 28)}...` : title}</p>
+            <p className="text titleText">{title.length > 31 ? `${title.slice(0, 28)}...` : title}</p>
              <div>
               <p className="text priceText">Rs. {price}</p>
               <p className="text ratingText">{rating} ⭐</p>
              </div>
             <button onClick={() => handleAddToCart(product)} className="button cartButton">
-              {toggleButton === false ? "Add to Cart" : "Go to Cart"}
+            {toggleButton === false ? (
+              <span>
+                <FontAwesomeIcon icon={faShoppingCart} className="cartIcon"/> Add to Cart
+              </span>
+            ) : (
+              "Go to Cart"
+            )}
             </button>
             <button onClick={() => handleAddToWishlist(product)} className="button wishlistButton">
-              Add to wishlist
+              Add to Wishlist
             </button>
           </div>
         );
