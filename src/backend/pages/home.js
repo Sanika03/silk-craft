@@ -1,9 +1,17 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
+
+import { categories } from "../db/categories";
+import { FilterContext } from "../../contexts/filterContext";
+
 import "../../styles/home.css"
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
     const [isHovered, setIsHovered] = useState(false);
     const videoRef = useRef(null);
+    const {filter, setFilter} = useContext(FilterContext);
+
+    const navigate = useNavigate();
 
     const handleMouseEnter = () => {
         setIsHovered(true);
@@ -39,10 +47,27 @@ export const Home = () => {
         </div>
     )
 
+    const goToSelectedProducts = (categoryName) => {
+        navigate("/products");
+        setFilter({ ...filter, category: categoryName })
+    }
+
+    const getCategoryProducts = () => (
+            <div className="products-container">
+                {categories.map(({categoryName, image}) =>
+                    <div className="category-container">
+                        <p className="category-text">{categoryName} Collection</p>
+                        <img src={image} className="category-image" alt={categoryName} onClick={() => goToSelectedProducts(categoryName)}/>
+                    </div>
+                )}
+            </div>
+    )
+
     return (
         <div className="mainDiv">
             {getVideo()}
             {getQuote()}
+            {getCategoryProducts()}
         </div>
     )
 }
