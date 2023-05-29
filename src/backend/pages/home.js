@@ -49,7 +49,8 @@ export const Home = () => {
 
     const goToSelectedProducts = (categoryName) => {
         navigate("/products");
-        setFilter({ ...filter, category: categoryName })
+        setFilter({ ...filter, category: categoryName });
+        window.scrollTo(0, 0);
     }
 
     const getCategoryProducts = () => (
