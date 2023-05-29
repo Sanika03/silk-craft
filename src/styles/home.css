@@ -13,7 +13,7 @@ video {
 }
 
 .quote-container {
-    background-color: rgb(232, 232, 232);
+    background-color: #D1EFD2;
     text-align: center;
     padding: 20px;
     position: relative;
@@ -21,5 +21,28 @@ video {
 }
 
 .quote-text {
-    font-style: italic
+    font-style: italic;
+    font-size: large;
+}
+
+.category-image {
+    width: 225px;
+}
+
+.products-container {
+    display: flex;
+    flex-direction: row;
+    /* margin: 0 10rem; */
+    justify-content: center;
+}
+
+.category-text {
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 1rem;
 }
