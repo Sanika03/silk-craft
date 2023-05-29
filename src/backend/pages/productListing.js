@@ -7,6 +7,7 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 import { ProductContext } from "../../contexts/productContext";
 import { categories } from "../db/categories";
+import { FilterContext } from "../../contexts/filterContext";
 
 
 export const ProductListing = () => {
@@ -19,7 +20,8 @@ export const ProductListing = () => {
     wishlistItems,
     setWishlistItems,
   } = useContext(ProductContext);
-  const [filter, setFilter] = useState({ category: [], rating: 0 });
+
+  const {filter, setFilter} = useContext(FilterContext);
 
   const navigate = useNavigate();
 
@@ -119,8 +121,8 @@ export const ProductListing = () => {
             <img src={imageLink} alt={title} className="productImage"/>
             <p className="text titleText">{title.length > 27 ? `${title.slice(0, 26)}...` : title}</p>
              <div>
-              <p className="text priceText">Rs. {price}</p>
-              <p className="text discountedPriceText">Rs. {discountedPrice}</p>
+              <p className="text priceText">Rs. {discountedPrice}</p>
+              <p className="text discountedPriceText">Rs. {price}</p>
               <p className="text ratingText">{rating} ⭐</p>
              </div>
             <button onClick={() => handleAddToCart(product)} className="button cartButton">
