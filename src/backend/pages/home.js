@@ -56,9 +56,9 @@ export const Home = () => {
     const getCategoryProducts = () => (
             <div className="products-container">
                 {categories.map(({categoryName, image}) =>
-                    <div className="category-container">
+                    <div className="category-container" onClick={() => goToSelectedProducts(categoryName)}>
                         <p className="category-text">{categoryName} Collection</p>
-                        <img src={image} className="category-image" alt={categoryName} onClick={() => goToSelectedProducts(categoryName)}/>
+                        <img src={image} className="category-image" alt={categoryName} />
                     </div>
                 )}
             </div>
