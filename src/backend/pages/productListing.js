@@ -14,7 +14,6 @@ export const ProductListing = () => {
   const {
     products,
     setProducts,
-    setItem,
     cartItems,
     setCartItems,
     wishlistItems,
@@ -25,19 +24,24 @@ export const ProductListing = () => {
 
   const navigate = useNavigate();
 
-  const handleSingleProductClick = (product) => setItem(product);
+  const handleSingleProductClick = (item) => {
+    navigate(`/products/${item._id}`, { state: { variable: item } });
+  }
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product, event) => {
     if (product.toggleButton === false) {
       setCartItems([...cartItems, product]);
       product.toggleButton = true;
     } else if (product.toggleButton === true) {
       navigate("/cart") ;
     }
+    event.stopPropagation()
   }
 
-  const handleAddToWishlist = (product) =>
+  const handleAddToWishlist = (product, event) =>{
     setWishlistItems([...wishlistItems, product]);
+    event.stopPropagation()
+  }
 
   const categoryFilteredProducts =
     filter.category.length === 0
@@ -78,8 +82,8 @@ export const ProductListing = () => {
   const showFilters = () => {
     return (
       <div className="filterDiv">
-        <p>Filters</p>
-        <button className="button clearFilterButton" onClick={handleClearFilters}>Clear All Filters</button>
+        <p className="filter-title">Filters</p>
+        <button className="button clearFilterButton" onClick={() => handleClearFilters()}>Clear All Filters</button>
         <div className="categoryFilter">
           <p>Categories</p>
           {categories.map(({ id, categoryName }) => (
@@ -88,7 +92,7 @@ export const ProductListing = () => {
                 type="checkbox"
                 name="categoryFilter"
                 value={categoryName}
-                onChange={handleCategoryFilter}
+                onChange={(e) => handleCategoryFilter(e)}
                 checked={filter.category.includes(categoryName)}
               />
               {categoryName}
@@ -105,7 +109,7 @@ export const ProductListing = () => {
             max={5}
             step={1}
             value={filter.rating}
-            onChange={handleRatingChange}
+            onChange={(e) => handleRatingChange(e)}
           />
         </div>
       </div>
@@ -125,7 +129,7 @@ export const ProductListing = () => {
               <p className="text discountedPriceText">Rs. {price}</p>
               <p className="text ratingText">{rating} ⭐</p>
              </div>
-            <button onClick={() => handleAddToCart(product)} className="button cartButton">
+            <button onClick={(event) => handleAddToCart(product, event)} className="button cartButton">
             {toggleButton === false ? (
               <span>
                 <FontAwesomeIcon icon={faShoppingCart} className="cartIcon"/> Add to Cart
@@ -134,7 +138,7 @@ export const ProductListing = () => {
               "Go to Cart"
             )}
             </button>
-            <button onClick={() => handleAddToWishlist(product)} className="button wishlistButton">
+            <button onClick={(event) => handleAddToWishlist(product, event)} className="button wishlistButton">
               Add to Wishlist
             </button>
           </div>
