@@ -1,4 +1,4 @@
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route} from "react-router-dom";
 
 import { Navigation } from "./components/navigation";
 import { Home } from "./backend/pages/home";
@@ -7,6 +7,7 @@ import { Wishlist } from "./backend/pages/wishlist";
 import { Cart } from "./backend/pages/cart";
 import { Profile } from "./backend/pages/profile";
 import { Footer } from "./components/footer";
+import { ProductDetails } from "./components/singleProduct";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/products/:_id" element={<ProductDetails />} />
       </Routes>
       <Footer />
     </div>
