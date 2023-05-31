@@ -9,13 +9,17 @@ export const products = [
   {
     _id: uuid(),
     title: "Orange Paithani Silk Dupatta",
-    description: "Handwoven Silk Paithani Dupatta with Zari Bootis all over & Brocade Border of Single Muniya on the Two Long Sides with Pallu in Hastkala Peacockl Motif",
+    description: "Handwoven Silk Paithani Dupatta with Zari Bootis",
     price: "5000",
     discountedPrice: "3600",
     categoryName: "Dupatta",
     imageLink: "/images/dupatta/dupatta1.webp",
     toggleButton: false, 
-    rating: 3.5
+    rating: 3.5,
+    size: "2.5 meters",
+    inStock: true,
+    deliveryTime: "6",
+    reviews: "3.1k"
   },
   {
     _id: uuid(),
@@ -26,7 +30,11 @@ export const products = [
     categoryName: "Saree",
     imageLink: "/images/saree/saree3.webp",
     toggleButton: false, 
-    rating: 4.1 
+    rating: 4.1,
+    size: "5.5 meters",
+    inStock: true,
+    deliveryTime: "4",
+    reviews: "1k"
   },
   {
     _id: uuid(),
@@ -37,7 +45,12 @@ export const products = [
     categoryName: "Kurti",
     imageLink: "/images/kurti/kurti2.jpg",
     toggleButton: false, 
-    rating: 3 },
+    rating: 3,
+    size: "M",
+    inStock: true,
+    deliveryTime: "7",
+    reviews: "2.3k"
+  },
   {
     _id: uuid(),
     title: "Peach Paithani Silk Lehenga",
@@ -47,18 +60,26 @@ export const products = [
     categoryName: "Lehenga",
     imageLink: "/images/lehenga/lehenga4.webp",
     toggleButton: false, 
-    rating: 4.4 
+    rating: 4.4,
+    size: "Onesize",
+    inStock: true,
+    deliveryTime: "5",
+    reviews: "1.6k"
   },
   {
     _id: uuid(),
     title: "Pista Green Paithani Silk Dupatta",
-    description: "Handwoven Silk Paithani Dupatta with Zari Stripes all over & Brocade Border of Single Muniya on the Two Long Sides with Pallu in Hastakala Floral Motif",
+    description: "Handwoven Silk Paithani Dupatta with Zari Stripes",
     price: "16000",
     discountedPrice: "14080",
     categoryName: "Dupatta",
     imageLink: "/images/dupatta/dupatta5.webp",
     toggleButton: false, 
-    rating: 1.8
+    rating: 1.8,
+    size: "3 meters",
+    inStock: true,
+    deliveryTime: "3",
+    reviews: "970"
   },
   {
     _id: uuid(),
@@ -69,51 +90,71 @@ export const products = [
     categoryName: "Saree",
     imageLink: "/images/saree/saree2.webp",
     toggleButton: false, 
-    rating: 3.1 
+    rating: 3.1,
+    size: "6 meters",
+    inStock: true,
+    deliveryTime: "8",
+    reviews: "4k" 
   },
   {
     _id: uuid(),
     title: "Violet Paithani Silk Dupatta",
-    description: "Handwoven Silk Paithani Dupatta with Zari Bootis all over & Traditional Border on the Two Long Sides with Pallu in Hastkala Peacockl Motif",
+    description: "Handwoven Silk Paithani Dupatta with Zari Bootis",
     price: "4500",
     discountedPrice: "2650",
     categoryName: "Dupatta",
     imageLink: "/images/dupatta/dupatta4.webp",
     toggleButton: false, 
-    rating: 2.9
+    rating: 2.9,
+    size: "3.5 meters",
+    inStock: true,
+    deliveryTime: "5",
+    reviews: "1.4k"
   }, 
   {
     _id: uuid(),
-    title: "Cream White Paithani Lehenga",
-    description: "Paithani Silk Un-stitched lehenga embroidered with floral & cultural motif embellishments and regal flair",
+    title: "Cream Paithani Lehenga",
+    description: "Paithani Silk Un-stitched lehenga embroidered with regal flair",
     price: "36000",
     discountedPrice: "23500",
     categoryName: "Lehenga",
     imageLink: "/images/lehenga/lehenga1.webp",
     toggleButton: false, 
-    rating: 2.9 
+    rating: 2.9,
+    size: "Onesize",
+    inStock: true,
+    deliveryTime: "7",
+    reviews: "800" 
   },
   {
     _id: uuid(),
     title: "Magenta Paithani Silk Dupatta",
-    description: "Handwoven Silk Paithani Dupatta with Zari Bootis all over & Traditional Border in Contrast Colour on the Two Long Sides with Pallu in Hastkala Peacockl Motif",
+    description: "Handwoven Silk Paithani Dupatta with Zari Bootis",
     price: "4000",
     discountedPrice: "2170",
     categoryName: "Dupatta",
     imageLink: "/images/dupatta/dupatta3.webp",
     toggleButton: false, 
-    rating: 4.7
+    rating: 4.7,
+    size: "2.5 meters",
+    inStock: true,
+    deliveryTime: "6",
+    reviews: "2k"
   },
   {
     _id: uuid(),
     title: "Pista Green Paithani Silk Lehenga",
-    description: "Paithani Silk Un-stitched lehenga embroidered with floral & cultural motif embellishments",
+    description: "Paithani Silk Un-stitched lehenga embroidered cultural motif embellishments",
     price: "33300",
     discountedPrice: "18590",
     categoryName: "Lehenga",
     imageLink: "/images/lehenga/lehenga2.webp",
     toggleButton: false, 
-    rating: 5 
+    rating: 5,
+    size: "Onesize",
+    inStock: true,
+    deliveryTime: "4",
+    reviews: "690" 
   },
   {
     _id: uuid(),
@@ -124,7 +165,11 @@ export const products = [
     categoryName: "Kurti",
     imageLink: "/images/kurti/kurti1.jpg",
     toggleButton: false, 
-    rating: 4.5
+    rating: 4.5,
+    size: "S",
+    inStock: true,
+    deliveryTime: "8",
+    reviews: "4k"
   },
   {
     _id: uuid(),
@@ -135,28 +180,41 @@ export const products = [
     categoryName: "Kurti",
     imageLink: "/images/kurti/kurti5.webp",
     toggleButton: false, 
-    rating: 4 },
+    rating: 4,
+    size: "XL",
+    inStock: true,
+    deliveryTime: "7",
+    reviews: "3.7k"
+  },
   {
     _id: uuid(),
     title: "Cyan Blue Paithani Upada Silk Lehenga",
-    description: "Paithani Silk Un-stitched lehenga embroidered with floral & cultural motif embellishments",
+    description: "Paithani Silk Un-stitched lehenga embroidered with cultural motif embellishments",
     price: "30900",
     discountedPrice: "19900",
     categoryName: "Lehenga",
     imageLink: "/images/lehenga/lehenga5.webp",
     toggleButton: false, 
-    rating: 3.3
+    rating: 3.3,
+    size: "Onesize",
+    inStock: true,
+    deliveryTime: "6",
+    reviews: "2.5k"
   },
   {
     _id: uuid(),
     title: "Red Paithani Silk Lehenga",
-    description: "Paithani Silk Un-stitched lehenga embroidered with floral & cultural motif embellishments",
+    description: "Paithani Silk Un-stitched lehenga embroidered with floral embellishments",
     price: "35600",
     discountedPrice: "21500",
     categoryName: "Lehenga",
     imageLink: "/images/lehenga/lehenga6.webp",
     toggleButton: false, 
-    rating: 2.8 
+    rating: 2.8,
+    size: "Onesize",
+    inStock: true,
+    deliveryTime: "9",
+    reviews: "1.7k" 
   },
   {
     _id: uuid(),
@@ -167,7 +225,11 @@ export const products = [
     categoryName: "Saree",
     imageLink: "/images/saree/saree1.webp",
     toggleButton: false, 
-    rating: 4.9
+    rating: 4.9,
+    size: "6.5 meters",
+    inStock: true,
+    deliveryTime: "4",
+    reviews: "730"
   },
   {
     _id: uuid(),
@@ -178,7 +240,11 @@ export const products = [
     categoryName: "Kurti",
     imageLink: "/images/kurti/kurti3.webp",
     toggleButton: false, 
-    rating: 1.3
+    rating: 1.3,
+    size: "L",
+    inStock: true,
+    deliveryTime: "5",
+    reviews: "4.3k"
   },
   {
     _id: uuid(),
@@ -189,27 +255,40 @@ export const products = [
     categoryName: "Saree",
     imageLink: "/images/saree/saree4.webp",
     toggleButton: false, 
-    rating: 4.7 
+    rating: 4.7,
+    size: "6 meters",
+    inStock: true,
+    deliveryTime: "7",
+    reviews: "3.8k" 
   },
   {
     _id: uuid(),
     title: "Rani Pink Paithani Silk Dupatta",
-    description: "Handwoven Silk Paithani Dupatta with Zari Bootis all over & Traditional Border in Contrast Colour on the Two Long Sides with Pallu in Hastkala Peacockl Motif",
+    description: "Handwoven Silk Paithani Dupatta with Zari Bootis",
     price: "13000",
     discountedPrice: "6500",
     categoryName: "Dupatta",
     imageLink: "/images/dupatta/dupatta2.webp",
     toggleButton: false, 
-    rating: 5 },
+    rating: 5,
+    size: "2.5 meters",
+    inStock: true,
+    deliveryTime: "6",
+    reviews: "3.4k" 
+  },
   {
     _id: uuid(),
     title: "Magenta Katan Silk Paithani Saree",
-    description: "Magenta paithani saree in pure katan silk banarasi handloom base with zari warp, meenakari work and thread work. It is paired with a contrasting blouse piece.",
+    description: "Magenta paithani saree in pure katan silk banarasi handloom base",
     price: "9000",
     discountedPrice: "4670",    
     categoryName: "Saree",
-    imageLink: "/images/saree/saree5.jpeg",
+    imageLink: "/images/saree/saree5.webp",
     toggleButton: false, 
-    rating: 3.4 
+    rating: 3.4,
+    size: "5.5 meters",
+    inStock: true,
+    deliveryTime: "7",
+    reviews: "2.6k" 
   },
 ];
