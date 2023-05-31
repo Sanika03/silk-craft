@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+.singleProduct-container {
+    display: flex;
+    margin-top: 7.4rem;
+    font-family: 'Nunito Sans', sans-serif;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.sub-text-container {
+    display: flex;
+}
+
+.image {
+    width: 340px;
+    height: 450px;
+    margin: 1.5rem;
+    background-color: rgb(243, 243, 243);
+    border-radius: 10px;
+}
+
+.details-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 26rem;
+    padding: 1.5rem 1rem;
+}
+
+.horizontal-line {
+    border-top: 1px solid black; 
+    margin-bottom: 1rem;
+}  
+
+.text-title {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+}
+
+.text-r {
+    font-size: 17px;
+    margin: 0;
+}
+
+.text-xl {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.text-s {
+    color: #5A5A5A;
+    font-size: large;
+    text-decoration: line-through 1.5px red;
+    margin: 1.65rem 0 0 1rem;
+}
+
+.text-m {
+    font-size: 17px;
+    margin: 0.7rem 0;
+}   
+
+.small-text {
+    display: flex;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.button-container {
+    display: flex;
+}
+
+.item-button {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 15px;
+    width: 100%;
+    color: white;
+    background-color: black;
+    border: 1.5px solid;
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+  
+.item-button:hover {
+    background-color: white;
+    color: black;
+}
