@@ -15,5 +15,13 @@ export const users = [
     password: "adarshbalika",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-  },
+  },{
+    _id: "3c510211-1c8f-412d-ad61-bac5eb09554f",
+    firstName: "Sanika",
+    lastName: "Suryawanshi",
+    email: "sanika@gmail.com",
+    password: "1234",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  }
 ];
