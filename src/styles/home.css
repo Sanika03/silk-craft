@@ -17,7 +17,7 @@ video {
     text-align: center;
     padding: 20px;
     position: relative;
-    margin: 3rem 0;
+    margin-top: 4rem;
 }
 
 .quote-text {
@@ -29,11 +29,15 @@ video {
     width: 225px;
 }
 
+.category-container:hover {
+    transform: translateY(-10px)
+}
+
 .products-container {
     display: flex;
     flex-direction: row;
-    /* margin: 0 10rem; */
     justify-content: center;
+    margin-top: 4rem;
 }
 
 .category-text {

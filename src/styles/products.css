@@ -2,16 +2,18 @@
 
 .productPage {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .filterDiv {
-  flex-basis: 30%; 
   font-family: 'Nunito Sans', sans-serif;
   text-align: left;
   padding: 1rem;
-  margin-top: 11.5rem;
+  margin-top: 8.5rem;
+  margin-left: 1rem;
   border: 1px solid gray;
-  height: 50%;
+  height: 26.5rem;
+  width: 15rem;
 }
 
 .product-container {
@@ -19,19 +21,24 @@
   text-align: left;
   display: flex;
   flex-wrap: wrap;
-  max-width: 70%; 
+  width: 57rem; 
   padding: 1rem;
-  margin: 10rem 0 0;
+  margin-top: 7rem;
+  margin-bottom: 10rem;
   justify-content: center;
+}
+
+.priceDiv {
+  display: flex;
+  flex-direction: column;
 }
 
 .product-item {
   width: 15rem; 
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  position: relative;
   margin: 0 1rem 1rem 1rem;
+  padding: 10px;
   justify-content: space-between;
   box-sizing: border-box
 }
@@ -40,6 +47,10 @@
   width: 218px;
   height: 270px;
   object-fit: cover;
+}
+
+.filter-title {
+  font-weight: 600;
 }
 
 .text {
@@ -73,16 +84,12 @@
   letter-spacing: 0.2px;
 }
 
-.button {
-  margin: 3px 0;
-}
-
 .wishlistButton {
   font-family: 'Nunito Sans', sans-serif;
   position: absolute;
-  bottom: 7.3rem;
-  left: 0.6rem;
-  width: 13.65rem;
+  bottom: 7.45rem;
+  left: 0.61rem;
+  width: 13.64rem;
   opacity: 0;
   transition: opacity 0.3s ease;
   background-color: white;
@@ -127,23 +134,20 @@
 
 .clearFilterButton {
   font-family: 'Nunito Sans', sans-serif;
-  display: inline-block;
-  margin-left: 5.5rem;
-  height: 2rem;
-  width: 110px;
-  position: relative;
+  font-size: 16px;
+  margin-left: 8rem;
   background-color: white;
-  color: black;
-  border: 1.5px solid;
+  border: 1px solid white;
 }
 
 .clearFilterButton:hover {
-  color: white;
-  background-color: black;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.filter-title {
-  display: inline-block;
+.filter-top {
+  display: flex;
 }
 
 .categoryFilter {
