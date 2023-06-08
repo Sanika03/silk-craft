@@ -1,17 +1,16 @@
 import { createContext, useEffect, useState } from "react";
 
+import { GetAllProducts } from "../services/services";
+
 export const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
-  const [wishlistItems, setWishlistItems] = useState([]);
 
   const getData = async () => {
     try {
-      const response = await fetch("api/products")
-      const {products} = await response.json()
-      setProducts(products)
+      const response = await GetAllProducts();
+      setProducts(response.data.products)
      }
     catch(e){
      console.log(e)
@@ -25,12 +24,7 @@ export const ProductProvider = ({ children }) => {
   return (
     <ProductContext.Provider
       value={{
-        products,
-        setProducts,
-        cartItems,
-        setCartItems,
-        wishlistItems,
-        setWishlistItems
+        products
       }}
     >
       {children}
