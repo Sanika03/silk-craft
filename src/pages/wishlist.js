@@ -30,8 +30,10 @@ export const Wishlist = () => {
         if (product.carted === false) {
             postCartHandler(product, token)
             product.carted = true;
+            product.qty++;
         } else if (product.carted === true) {
-            incDecCartHandler(product._id, token, 'increment')
+            incDecCartHandler(product._id, token, 'increment');
+            product.qty++;
         }
         product.wished = false;
         deleteWishlistHandler(product._id, token)
