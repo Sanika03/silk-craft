@@ -27,6 +27,7 @@ export const ProductDetails = () => {
     if (carted === false) {
       postCartHandler(item, token)
       item.carted = true;
+      item.qty++
     } else if (carted === true) {
       navigate("/cart") ;
     }
