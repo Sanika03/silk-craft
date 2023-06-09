@@ -38,6 +38,7 @@ video {
     flex-direction: row;
     justify-content: center;
     margin-top: 4rem;
+    margin-bottom: 5rem;
 }
 
 .category-text {
