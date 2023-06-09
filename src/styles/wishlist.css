@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 
 .wishlist-page {
-  margin-top: 8rem;
+  margin-top: 6rem;
   margin-bottom: 10rem;
 }
 
@@ -110,4 +110,12 @@
 .cart-button:hover {
   color: white;
   background-color: black;
+}
+
+.wishlist-image {
+  width: 300px;
+}
+
+.empty-wishlist-container {
+  text-align: center;
 }
