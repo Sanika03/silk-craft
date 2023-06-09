@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 
 .cart-page {
-    margin-top: 8rem;
+    margin-top: 6rem;
 }
 
 .cart-main-container {
@@ -19,7 +19,8 @@
     width: 35%;
     margin: 1rem 0;
     border-radius: 1rem;
-    background-color: #ffebeb;
+    padding: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .detail-container {
@@ -49,7 +50,7 @@
 }
 
 .product-image {
-    width: 180px;
+    width: 190px;
     object-fit: cover;
     border-radius: 1rem;
 }
@@ -77,7 +78,7 @@
 }
 
 .inc-dec-button {
-    background-color: #ffebeb;
+    background-color: white;
     border: none;
     margin: 0 0.2rem 1.6rem 0;
     padding: 0 0.5rem;
@@ -102,6 +103,34 @@
 }
 
 .action-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.empty-cart-container {
+    text-align: center;
+}
+
+.cart-image {
+    width: 300px;
+}
+
+.empty-cart-text {
+    margin-bottom: 0;
+}
+
+.explore-button {
+    background-color: #D1EFD2;
+    color: black;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 17px;
+    padding: 0.3rem 0;
+    width: 8rem;
+    margin-top: 1rem;
+    border: 2px solid;
+}
+
+.explore-button:hover {
     background-color: black;
     color: white;
 }
