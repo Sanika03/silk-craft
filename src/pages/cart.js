@@ -26,6 +26,12 @@ export const Cart = () => {
     navigate(`/products/${item._id}`);
   }
 
+  const getTotalMrp = () => cartData.reduce((acc, curr) => acc + Number(curr.price), 0);
+
+  const getDiscount = () => cartData.reduce((acc, curr) => acc + Number(curr.price - curr.discountedPrice), 0);
+
+  const getTotalAmount = () => cartData.reduce((acc, curr) => acc + Number(curr.discountedPrice), 0);
+
   const handleIncDec = (product, action) => {
     if(action === "increment") {
       incDecCartHandler(product._id, token, "increment")
@@ -56,12 +62,8 @@ export const Cart = () => {
     }
   }
 
-  console.log("item", cartItems)
-  console.log("data", cartData)
-
   const getProducts = () => (
     <div className="cart-main-container">
-    {cartData.length > 0 && <h2>MY CART ({cartItems.length})</h2>}
       {cartData.length !== 0 && (cartData.map((product) =>
         {
           const { _id, title, price, discountedPrice, imageLink, qty } = product;
@@ -109,12 +111,42 @@ export const Cart = () => {
       <button onClick={() => navigate("/products")} className="explore-button">Explore</button>
     </div>
   )
+
+  const getPriceCard = () => (cartData.length > 0 && (
+    <div className="price-card">
+      <h3 className="price-card-title">Price Details</h3>
+      <p className="item-text">({cartData.length} item
+      {cartData.length > 1 ? "s" : null})</p>
+      <hr/>
+        {/* <div className="price-details"> */}
+          <div className="price-container">
+            <p className="text-price-details">Total MRP</p>
+            <p className="text-price-details">Rs. {getTotalMrp()}</p>
+          </div>
+          <div className="discount-container">
+            <p className="text-price-details">Discount on MRP</p>
+            <p className="text-price-details">- Rs. {getDiscount()}</p>
+          </div>
+          <hr/>
+          <div className="total-price-container">
+            <p className="text-price-details">Total Amount</p>
+            <p className="text-price-details">Rs. {getTotalAmount()}</p>
+          </div>
+          <hr/>
+          <button onClick={() => navigate("/checkout")} className="checkout-button">Checkout</button>
+        {/* </div> */}
+    </div>
+  ))
   
     return (
-      <div className="cart-page">
-        {emptyCartMessage()}
-        {getProducts()}
+      <>
+        {cartData.length > 0 && <h2 className="cart-title">MY CART ({cartItems.length})</h2>}
+        <div className="cart-page">
+          {emptyCartMessage()}
+          {getProducts()}
+          {getPriceCard()}
       </div>
+      </>
     )
   };
   
