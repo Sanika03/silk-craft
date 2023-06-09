@@ -100,10 +100,19 @@ export const Cart = () => {
       ))}
     </div>
   )
+
+  const emptyCartMessage = () => cartData.length === 0 && (
+    <div className="empty-cart-container">
+      <img src="/images/emptyCart.jpg" className="cart-image" alt="Empty cart"/>
+      <h2 className="empty-cart-text">It feels so light!</h2>
+      <p>There's nothing in your cart. Let's add some products.</p>
+      <button onClick={() => navigate("/products")} className="explore-button">Explore</button>
+    </div>
+  )
   
     return (
       <div className="cart-page">
-        {cartData.length === 0 && <h1>Your cart is empty</h1>}
+        {emptyCartMessage()}
         {getProducts()}
       </div>
     )
