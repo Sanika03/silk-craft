@@ -1,19 +1,111 @@
 import { useContext } from "react";
-import { CartContext } from "../contexts/cartContext";
+import { useNavigate } from "react-router-dom";
 
+import "../styles/cart.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinusCircle, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+
+import { CartContext } from "../contexts/cartContext";
+import { WishlistContext } from "../contexts/wishlistContext";
+import { ProductContext } from "../contexts/productContext";
+import { useAuth } from "../contexts/authContext";
 
 export const Cart = () => {
+  const { incDecCartHandler, deleteCartHandler } = useContext(CartContext);
+  const { postWishlistHandler } = useContext(WishlistContext);
+  const { products } = useContext(ProductContext)
   const { cartItems } = useContext(CartContext);
 
-  const getProducts = () => cartItems.map((product) => 
-    <div key={product._id}>
-      
-    </div>)
+  const cartData = products.filter((el) => el.carted);
+
+  const {token} = useAuth();
+  
+  const navigate = useNavigate();
+
+  const handleSingleProductClick = (item) => {
+    navigate(`/products/${item._id}`);
+  }
+
+  const handleIncDec = (product, action) => {
+    if(action === "increment") {
+      incDecCartHandler(product._id, token, "increment")
+      product.qty++;
+    } else if(action === "decrement") {
+      if(product.qty > 1){
+        incDecCartHandler(product._id, token, "decrement")
+        product.qty--;
+      }
+    }
+  }
+
+  const handleRemoveFromCart = (product) => {
+    deleteCartHandler(product._id, token);
+    product.carted = false;
+    product.qty--;
+  }
+
+  const handleMoveToWishlist = (product) => {
+    if (product.wished === false) {
+      postWishlistHandler(product, token)
+      product.wished = true;
+      deleteCartHandler(product._id, token);
+      product.carted = false;
+      product.qty--;
+    } else if (product.wished === true) {
+      //toast that it already exists in wishlist
+    }
+  }
+
+  console.log("item", cartItems)
+  console.log("data", cartData)
+
+  const getProducts = () => (
+    <div className="cart-main-container">
+    {cartData.length > 0 && <h2>MY CART ({cartItems.length})</h2>}
+      {cartData.length !== 0 && (cartData.map((product) =>
+        {
+          const { _id, title, price, discountedPrice, imageLink, qty } = product;
+          return (
+            <div key={_id} className="cart-product-container">
+              <img src={imageLink} alt={_id} className="product-image" onClick={() => handleSingleProductClick(product)}/>  
+              <div className="detail-container">
+                  <div className="text-details">
+                  <p className="title">{title.length > 27 ? `${title.slice(0, 26)}...` : title}</p>
+                  <div className="price">
+                    <p className="price-text">Rs. {discountedPrice}</p>
+                    <p className="small-price">Rs. {price}</p>
+                  </div>
+                  <div className="quantity-container">
+                    <p className="quantity-text">Quantity:</p> 
+                    <button onClick={() => handleIncDec(product
+                    , "decrement")} className="inc-dec-button">
+                      <FontAwesomeIcon icon={faMinusCircle}/>
+                    </button>
+                    <p className="quantity">{qty}</p>
+                    <button onClick={() => handleIncDec(product
+                    , "increment")} className="inc-dec-button">
+                      <FontAwesomeIcon icon={faPlusCircle}/>
+                    </button>
+                  </div>
+                </div>
+                <div className="buttons-container">
+                  <button onClick={() => handleMoveToWishlist(product)} className="action-button">Move to Wishlist</button>
+                  <button onClick={() => handleRemoveFromCart
+                  (product)} className="action-button">Remove from Cart</button>
+                </div>
+              </div>
+            </div>
+          )
+        }
+      ))}
+    </div>
+  )
   
     return (
-      <>
+      <div className="cart-page">
+        {cartData.length === 0 && <h1>Your cart is empty</h1>}
         {getProducts()}
-      </>
+      </div>
     )
   };
   
