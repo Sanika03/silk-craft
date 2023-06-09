@@ -71,7 +71,12 @@ export const Wishlist = () => {
         </div>
       );
 
-    const emptyWishlistMessage = () => wishlistItems === undefined || wishlistItems.length === 0 ? <h1>Your wishlist is empty!</h1> : null
+    const emptyWishlistMessage = () => wishlistItems === undefined || wishlistItems.length === 0 ? <div className="empty-wishlist-container">
+      <img src="/images/emptyWishlist.png" alt="Empty Wishlist" className="wishlist-image"/>
+      <h2>Your wishlist is empty</h2>
+      <p>Start exploring and save your favorite items!</p>
+      <button onClick={() => navigate("/products")} className="explore-button">Explore</button>
+    </div> : null
 
     return (
         <div className="wishlist-page">
