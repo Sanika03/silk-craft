@@ -15,6 +15,7 @@ import { Profile } from "./pages/profile";
 import { Login } from "./pages/login";
 import { SignUp } from "./pages/signUp";
 import { ErrorPage } from "./pages/error";
+import { Logout } from "./pages/logout";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/products/:_id" element={<ProductDetails />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path='/404' element={<ErrorPage />} />
         <Route path='*' element={<Navigate to={'/404'} />} />
       </Routes>
