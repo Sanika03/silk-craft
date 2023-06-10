@@ -1,15 +1,17 @@
 import { useState, useRef, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { categories } from "../backend/db/categories";
 import { FilterContext } from "../contexts/filterContext";
+import { ProductContext } from "../contexts/productContext";
 
 import "../styles/home.css"
-import { useNavigate } from "react-router-dom";
+
 
 export const Home = () => {
     const [isHovered, setIsHovered] = useState(false);
     const videoRef = useRef(null);
     const {filter, setFilter} = useContext(FilterContext);
+    const {categories, isCategoryLoading} = useContext(ProductContext);
 
     const navigate = useNavigate();
 
@@ -64,11 +66,17 @@ export const Home = () => {
             </div>
     )
 
+    const getLoader = () => isCategoryLoading && <img src="/images/loader/loader.gif" className="loader"/>  
+
     return (
-        <div className="mainDiv">
-            {getVideo()}
-            {getQuote()}
-            {getCategoryProducts()}
-        </div>
+        <>
+            {!isCategoryLoading ? (
+                <div className="mainDiv">
+                    {getVideo()}
+                    {getQuote()}
+                    {getCategoryProducts()}
+                </div>
+            ) : getLoader()}
+        </>
     )
 }
