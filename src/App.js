@@ -14,6 +14,7 @@ import { Checkout } from "./pages/checkout";
 import { Profile } from "./pages/profile";
 import { Login } from "./pages/login";
 import { SignUp } from "./pages/signUp";
+import { ErrorPage } from "./pages/error";
 
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
         <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/products/:_id" element={<ProductDetails />} />
+        <Route path='/404' element={<ErrorPage />} />
+        <Route path='*' element={<Navigate to={'/404'} />} />
       </Routes>
       <Footer />
     </div>
