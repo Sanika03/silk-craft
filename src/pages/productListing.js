@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import "../styles/products.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -26,6 +26,7 @@ export const ProductListing = () => {
   const {token} = useAuth();
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSingleProductClick = (item) => {
     navigate(`/products/${item._id}`);
@@ -33,28 +34,32 @@ export const ProductListing = () => {
 
   const handleAddToCart = (product, event) => {
     if(!token){
-      navigate("/login");
+      navigate('/login', { state: { from: location } });
     }
-    if (product.carted === false) {
-      postCartHandler(product, token)
-      product.carted = true;
-      product.qty++;
-    } else if (product.carted === true) {
-      navigate("/cart") ;
+    else {
+      if (product.carted === false) {
+        postCartHandler(product, token)
+        product.carted = true;
+        product.qty++;
+      } else if (product.carted === true) {
+        navigate("/cart") ;
+      }
     }
     event.stopPropagation()
   }
 
   const handleAddToWishlist = (product, event) =>{
     if(!token){
-      navigate("/login");
+      navigate('/login', { state: { from: location } });
     }
-    if (product.wished === false) {
-      postWishlistHandler(product, token)
-      product.wished = true;
-    } else if (product.wished === true) {
-      deleteWishlistHandler(product._id, token)
-      product.wished = false;
+    else {
+      if (product.wished === false) {
+        postWishlistHandler(product, token)
+        product.wished = true;
+      } else if (product.wished === true) {
+        deleteWishlistHandler(product._id, token)
+        product.wished = false;
+      }
     }
     event.stopPropagation()
   }
