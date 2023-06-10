@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+.error-page {
+    margin: 5rem;
+    text-align: center;
+}
+
+.page-not-found-image {
+    width: 30rem;
+}
+
+.not-found-heading {
+    margin: 0;
+}
+
+.home-button {
+    background-color: #D1EFD2;
+    color: black;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 17px;
+    padding: 0.3rem 0;
+    width: 8rem;
+    margin-top: 1rem;
+    border: 2px solid;
+}
+
+.home-button:hover {
+    color: white;
+    background-color: black;
+}
