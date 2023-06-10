@@ -2,6 +2,7 @@
 
 .cart-page {
     display: flex;
+    font-family: 'Nunito Sans', sans-serif;
     gap: 3rem;
     margin: 0;
     justify-content: center;
@@ -9,7 +10,6 @@
 }
 
 .cart-main-container {
-    font-family: 'Nunito Sans', sans-serif;
     font-size: 17px;
     display: flex;
     flex-direction: column;
@@ -58,6 +58,7 @@
 }
 
 .cart-title {
+    font-family: 'Nunito Sans', sans-serif;
     text-align: center;
     margin-top: 8rem;
 }
@@ -150,7 +151,6 @@
     width: 20rem;
     padding: 0.5rem 1.3rem;
     margin-top: 1rem;
-    font-family: 'Nunito Sans', sans-serif;
     font-size: 17px;
 }
 
