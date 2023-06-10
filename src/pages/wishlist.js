@@ -14,7 +14,7 @@ export const Wishlist = () => {
 
     const { postCartHandler, incDecCartHandler } = useContext(CartContext);
     const { products } = useContext(ProductContext)
-    const { wishlistItems, deleteWishlistHandler } = useContext(WishlistContext);
+    const { wishlistItems, deleteWishlistHandler, isWishlistLoading } = useContext(WishlistContext);
 
     const wishlistData = products.filter((el) => el.wished);
   
@@ -72,16 +72,22 @@ export const Wishlist = () => {
       );
 
     const emptyWishlistMessage = () => wishlistItems === undefined || wishlistItems.length === 0 ? <div className="empty-wishlist-container">
-      <img src="/images/emptyWishlist.png" alt="Empty Wishlist" className="wishlist-image"/>
+      <img src="/images/optional/emptyWishlist.png" alt="Empty Wishlist" className="wishlist-image"/>
       <h2>Your wishlist is empty</h2>
       <p>Start exploring and save your favorite items!</p>
       <button onClick={() => navigate("/products")} className="explore-button">Explore</button>
     </div> : null
 
+    const getLoader = () => isWishlistLoading && <img src="/images/loader/loader.gif" className="loader"/>  
+
     return (
-        <div className="wishlist-page">
-            {emptyWishlistMessage()}
-            {showProducts()}
-        </div>
+        <>
+          {!isWishlistLoading ? (
+            <div className="wishlist-page">
+              {emptyWishlistMessage()}
+              {showProducts()}
+            </div>
+          ) : getLoader()}
+        </>
     )
 }

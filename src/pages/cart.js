@@ -11,7 +11,7 @@ import { ProductContext } from "../contexts/productContext";
 import { useAuth } from "../contexts/authContext";
 
 export const Cart = () => {
-  const { incDecCartHandler, deleteCartHandler } = useContext(CartContext);
+  const { incDecCartHandler, deleteCartHandler, isCartLoading } = useContext(CartContext);
   const { postWishlistHandler } = useContext(WishlistContext);
   const { products } = useContext(ProductContext)
   const { cartItems } = useContext(CartContext);
@@ -105,7 +105,7 @@ export const Cart = () => {
 
   const emptyCartMessage = () => cartData.length === 0 && (
     <div className="empty-cart-container">
-      <img src="/images/emptyCart.jpg" className="cart-image" alt="Empty cart"/>
+      <img src="/images/optional/emptyCart.jpg" className="cart-image" alt="Empty cart"/>
       <h2 className="empty-cart-text">It feels so light!</h2>
       <p>There's nothing in your cart. Let's add some products.</p>
       <button onClick={() => navigate("/products")} className="explore-button">Explore</button>
@@ -137,15 +137,21 @@ export const Cart = () => {
         {/* </div> */}
     </div>
   ))
+
+  const getCartTitle = () => cartData.length > 0 && <h2 className="cart-title">MY CART ({cartItems.length})</h2>
+
+  const getLoader = () => isCartLoading && <img src="/images/loader/loader.gif" className="loader"/>  
   
     return (
       <>
-        {cartData.length > 0 && <h2 className="cart-title">MY CART ({cartItems.length})</h2>}
-        <div className="cart-page">
-          {emptyCartMessage()}
-          {getProducts()}
-          {getPriceCard()}
-      </div>
+        {!isCartLoading ? (
+          <div className="cart-page">
+          {getCartTitle()}
+            {emptyCartMessage()}
+            {getProducts()}
+            {getPriceCard()}
+          </div>
+        ) : getLoader()}
       </>
     )
   };
