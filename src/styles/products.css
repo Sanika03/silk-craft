@@ -155,3 +155,9 @@
   display: flex;
   flex-direction: column;
 }
+
+.no-products {
+  font-family: 'Nunito Sans', 'sans-serif';
+  margin-top: 10rem;
+  margin-left: 3rem;
+}
