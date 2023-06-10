@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+.logout-container {
+    font-family: 'Nunito Sans', sans-serif;
+    margin-top: 8.5rem;
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logout-image {
+    width: 10rem;
+}
+
+.logout-heading {
+    margin: 1rem 0 0 0;
+}
