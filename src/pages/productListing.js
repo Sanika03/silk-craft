@@ -191,6 +191,8 @@ export const ProductListing = () => {
     );
   };
 
+  const noProducts = () => searchFilterData.length === 0 && <h2 className="no-products">No products to display!</h2>
+
   const showProducts = () => (
     <div className="product-container">
       {searchFilterData.map((product) => {
@@ -225,6 +227,7 @@ export const ProductListing = () => {
   return (
     <div className="productPage">
       {showFilters()}
+      {noProducts()}
       {showProducts()}
     </div>
   );
