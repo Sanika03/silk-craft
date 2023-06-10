@@ -161,3 +161,11 @@
   margin-top: 10rem;
   margin-left: 3rem;
 }
+
+.loader {
+  width: 15rem;
+  margin: 15rem 0 0 0;
+  position: sticky;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
