@@ -1,3 +1,53 @@
-.signup_component {
-    margin-top: 10rem;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+.signup-component {
+    font-family: 'Nunito Sans', sans-serif;
+    margin-top: 8rem;
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-page {
+    border-radius: 0.5rem;
+    width: 20rem;
+    padding: 1rem 2rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.signup-heading {
+    text-align: center;
+    font-size: 25px;
+    margin: 1rem;
+}
+
+.signup-btn {
+    width: 100%;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+    padding: 0.3rem;
+    margin: 0.5rem 0;
+    background-color: rgb(31, 31, 31);
+    color: white;
+    border: 1px solid;
+    border-radius: 0.4rem;
+}
+
+.signup-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.signin-link {
+    text-decoration: none;
+    color: rgb(183, 89, 183);
+}
+
+.signin-link:hover {
+    text-decoration: underline;
+}
+
+.confirm-password-container {
+    position: relative;
 }
