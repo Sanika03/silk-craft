@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 
 import "../styles/singleProduct.css";
 
@@ -15,34 +15,39 @@ export const ProductDetails = () => {
   const { postWishlistHandler, deleteWishlistHandler } = useContext(WishlistContext);
 
   const navigate = useNavigate();
-
+  const location = useLocation();
   const { _id } = useParams();
+
   const item = products.find((el) => el._id === _id)
   const { title, imageLink, description, rating, price, discountedPrice, carted, wished, inStock, size, deliveryTime, reviews } = item;
 
   const handleAddToCart = () => {
     if(!token){
-      navigate("/login");
+      navigate('/login', { state: { from: location } });
     }
-    if (carted === false) {
-      postCartHandler(item, token)
-      item.carted = true;
-      item.qty++
-    } else if (carted === true) {
-      navigate("/cart") ;
+    else {
+      if (carted === false) {
+        postCartHandler(item, token)
+        item.carted = true;
+        item.qty++
+      } else if (carted === true) {
+        navigate("/cart") ;
+      }
     }
   }
   
   const handleAddToWishlist = () =>{
     if(!token){
-      navigate("/login");
+      navigate('/login', { state: { from: location } });
     }
-    if (wished === false) {
-      postWishlistHandler(item, token)
-      item.wished = true;
-    } else if (wished === true) {
-      deleteWishlistHandler(item._id, token)
-      item.wished = false;
+    else {
+      if (wished === false) {
+        postWishlistHandler(item, token)
+        item.wished = true;
+      } else if (wished === true) {
+        deleteWishlistHandler(item._id, token)
+        item.wished = false;
+      }
     }
   }
 
