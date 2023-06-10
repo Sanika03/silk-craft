@@ -14,7 +14,7 @@ import { useAuth } from "../contexts/authContext";
 
 export const ProductListing = () => {
   const {
-    products
+    products, isProductLoading
   } = useContext(ProductContext);
 
   const { postCartHandler } = useContext(CartContext);
@@ -193,6 +193,8 @@ export const ProductListing = () => {
 
   const noProducts = () => searchFilterData.length === 0 && <h2 className="no-products">No products to display!</h2>
 
+  const getLoader = () => isProductLoading && <img src="/images/loader/loader.gif" className="loader"/>  
+
   const showProducts = () => (
     <div className="product-container">
       {searchFilterData.map((product) => {
@@ -225,10 +227,14 @@ export const ProductListing = () => {
   );
 
   return (
-    <div className="productPage">
-      {showFilters()}
-      {noProducts()}
-      {showProducts()}
-    </div>
+    <>
+      {!isProductLoading ? (
+        <div className="productPage">
+          {showFilters()}
+          {noProducts()}
+          {showProducts()}
+        </div>
+      ) : getLoader()}
+    </>
   );
 };
