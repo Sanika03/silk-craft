@@ -7,11 +7,13 @@ export const WishlistContext = createContext();
 
 export const WishlistProvider = ({children}) => {
   const [wishlistItems, setWishlistItems] = useState([]);
+  const [isWishlistLoading, setIsWishlistLoading] = useState(true);
   const { token } = useAuth();
 
   const getWishlistHandler = async () => {
     try {
       const response = await GetWishList({encodedToken: token})
+      setIsWishlistLoading(false);
       if (response.status === 200) {
         setWishlistItems(response.data.wishlistItems)
       }
@@ -53,7 +55,7 @@ export const WishlistProvider = ({children}) => {
   }, []);
 
   return (
-    <WishlistContext.Provider value={{wishlistItems, postWishlistHandler, deleteWishlistHandler}}>
+    <WishlistContext.Provider value={{wishlistItems, postWishlistHandler, deleteWishlistHandler, isWishlistLoading}}>
       {children}
     </WishlistContext.Provider>
   )

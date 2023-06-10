@@ -7,11 +7,13 @@ export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
   const [cartItems, setCartItems] = useState([]);
+  const [isCartLoading, setIsCartLoading] = useState(true);
   const { token } = useAuth();
 
   const getCartHandler = async () => {
     try {
       const response = await GetCartList({encodedToken: token})
+      setIsCartLoading(false)
       if (response.status === 200) {
         setCartItems(response.data.cart)
       }
@@ -68,7 +70,7 @@ export const CartProvider = ({children}) => {
   }, []);
 
   return (
-    <CartContext.Provider value={{cartItems, postCartHandler, deleteCartHandler, incDecCartHandler}}>
+    <CartContext.Provider value={{cartItems, postCartHandler, deleteCartHandler, incDecCartHandler, isCartLoading}}>
       {children}
     </CartContext.Provider>
   )
