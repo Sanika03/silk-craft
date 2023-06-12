@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+.address-page {
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+    font-family: 'Nunito Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.address-container {
+    border-radius: 0.5rem;
+    width: 20rem;
+    padding: 1rem 2rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.address-select-container {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.add-address-container {
+    border: 1px solid gray;
+    padding: 10px; 
+    margin-top: 10px;
+    width: 93.5%;
+}
+
+.address-input {
+    padding: 6px 4px;
+    width: 95%;
+    margin: 0.5rem 0;
+}
+
+.address-action-button {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 15px;
+    width: 45%;
+    margin: 0.4rem;
+    padding: 4px 0;
+    background-color: rgb(28, 28, 28);
+    color: white;
+    border: 1px solid;
+}
+
+.address-action-button:hover {
+    background-color: white;
+    color: black;
+}
+
+.final {
+    width: 50%;
+    margin: 0.8rem 0;
+}
