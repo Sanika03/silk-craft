@@ -1,4 +1,4 @@
-import { useState, useRef, useContext } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { FilterContext } from "../contexts/filterContext";
@@ -8,51 +8,27 @@ import "../styles/home.css"
 
 
 export const Home = () => {
-    const [isHovered, setIsHovered] = useState(false);
-    const videoRef = useRef(null);
     const {filter, setFilter} = useContext(FilterContext);
     const {categories, isCategoryLoading} = useContext(ProductContext);
 
     const navigate = useNavigate();
 
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-        if (videoRef.current) {
-        videoRef.current.currentTime = 0;
-        videoRef.current.play();
-        }
-    };
+    const getHomeTopImage = () => <img src="/images/optional/home1.webp" alt="Shop now" className="home-image"/>
 
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-    };
-
-    const getVideo = () =>  (
-        <div className="video-container">
-            <video
-            className={`video ${isHovered ? "hovered" : null}`}
-            src="/images/homeVideo.mp4"
-            autoPlay 
-            muted
-            ref={videoRef}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            />
-        </div>
-    )
+    const getHomeEndImage = () => <img src="/images/optional/home2.jpg" alt="Shop now" className="home-end-image"/>
 
     const getQuote = () => (
         <div className="quote-container">
             <p className="quote-text">
-                "Tradition is the heartbeat of a culture, passing down stories, values, and craftsmanship from one generation to another."
+                "Wrap Yourself in Timeless Luxury: Where Silk Unveils Your Signature Style and Redefines Fashion as an Art.."
             </p>
+            <button onClick={() => navigate("/products")} className="shop-now-button">Shop Now</button>
         </div>
     )
 
     const goToSelectedProducts = (categoryName) => {
         navigate("/products");
         setFilter({ ...filter, category: [categoryName] });
-        window.scrollTo(0, 0);
     }
 
     const getCategoryProducts = () => (
@@ -72,9 +48,11 @@ export const Home = () => {
         <>
             {!isCategoryLoading ? (
                 <div className="mainDiv">
-                    {getVideo()}
+                    {getHomeTopImage()}
                     {getQuote()}
+                    <img src="/images/optional/shopByCategory.webp" alt="Shop By Category" className="shop-by-category-image"/>
                     {getCategoryProducts()}
+                    {getHomeEndImage()}
                 </div>
             ) : getLoader()}
         </>
