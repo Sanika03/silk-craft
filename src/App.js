@@ -10,7 +10,8 @@ import { ProductListing } from "./pages/productListing";
 import { ProductDetails } from "./pages/singleProduct";
 import { Wishlist } from "./pages/wishlist";
 import { Cart } from "./pages/cart";
-import { Checkout } from "./pages/checkout";
+import { AddressPage } from "./pages/userAddress";
+import { OrderSummary } from "./pages/orderSummary";
 import { Profile } from "./pages/profile";
 import { Login } from "./pages/login";
 import { SignUp } from "./pages/signUp";
@@ -28,7 +29,8 @@ function App() {
         <Route path="/products" element={<ProductListing />} />
         <Route path="/wishlist" element={<PrivateRoute><Wishlist /></PrivateRoute>} />
         <Route path="/cart" element={<PrivateRoute><Cart /></PrivateRoute>} />
-        <Route path="/checkout" element={<PrivateRoute><Checkout /></PrivateRoute>} />
+        <Route path="/checkout/userAddress" element={<PrivateRoute><AddressPage /></PrivateRoute>} />
+        <Route path="/checkout/orderSummary" element={<PrivateRoute><OrderSummary /></PrivateRoute>} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
         <Route path="/signup" element={<SignUp />} />
