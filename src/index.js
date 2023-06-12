@@ -4,6 +4,7 @@ import { ProductProvider } from "./contexts/productContext";
 import { FilterProvider } from "./contexts/filterContext";
 import { AuthProvider } from "./contexts/authContext";
 import { CartProvider } from "./contexts/cartContext";
+import { AddressProvider } from "./contexts/addressContext";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -28,7 +29,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <AuthProvider>
             <CartProvider>
               <WishlistProvider>
-                <App />
+                <AddressProvider>
+                  <App />
+                </AddressProvider>
               </WishlistProvider>
             </CartProvider>
           </AuthProvider>
