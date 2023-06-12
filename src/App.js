@@ -17,7 +17,7 @@ import { Login } from "./pages/login";
 import { SignUp } from "./pages/signUp";
 import { ErrorPage } from "./pages/error";
 import { Logout } from "./pages/logout";
-
+import { OrderSuccessful } from "./pages/orderSuccessful";
 
 function App() {
   return (
@@ -36,6 +36,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/products/:_id" element={<ProductDetails />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/orderSuccessful" element={<OrderSuccessful />} />
         <Route path='/404' element={<ErrorPage />} />
         <Route path='*' element={<Navigate to={'/404'} />} />
       </Routes>
