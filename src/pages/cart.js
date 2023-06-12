@@ -138,9 +138,9 @@ export const Cart = () => {
     </div>
   ))
 
-  const getCartTitle = () => cartData.length > 0 && <h2 className="cart-title">MY CART ({cartItems.length})</h2>
+  const getCartTitle = () => cartData.length > 0 && <h2 className="cart-title">MY CART ({cartData.length})</h2>
 
-  const getLoader = () => isCartLoading && <img src="/images/loader/loader.gif" className="loader"/>  
+  const getLoader = () => isCartLoading && <img src="/images/loader/loader.gif" className="loader" alt="loader"/>  
   
     return (
       <>
