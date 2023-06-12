@@ -145,11 +145,13 @@ export const Cart = () => {
     return (
       <>
         {!isCartLoading ? (
-          <div className="cart-page">
-          {getCartTitle()}
-            {emptyCartMessage()}
-            {getProducts()}
-            {getPriceCard()}
+          <div className="cart-main-page">
+            {getCartTitle()}
+              <div className="cart-page">
+                {emptyCartMessage()}
+                {getProducts()}
+                {getPriceCard()}
+              </div>
           </div>
         ) : getLoader()}
       </>
