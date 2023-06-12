@@ -5,10 +5,12 @@ import { ProductContext } from "../contexts/productContext";
 
 import "../styles/orderSummary.css"
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../contexts/cartContext";
 
 export const OrderSummary = () => {
     const { addressData } = useContext(AddressContext);
     const { products } = useContext(ProductContext);
+    const { setCartItems } = useContext(CartContext);
 
     const navigate = useNavigate();
     
@@ -21,7 +23,12 @@ export const OrderSummary = () => {
     const getTotalAmount = () => cartData.reduce((acc, curr) => acc + Number(curr.discountedPrice), 0);
 
     const handlePlaceOrder = () => {
-        navigate("/orderSuccessful")
+        navigate("/orderSuccessful");
+        products.map((product) => {
+            product.carted = false;
+            product.qty = 0
+        });
+        setCartItems([]);
     }
 
     const productDetailsCard = () => <div className="sub-card">
