@@ -133,7 +133,7 @@ export const Cart = () => {
             <p className="text-price-details">Rs. {getTotalAmount()}</p>
           </div>
           <hr/>
-          <button onClick={() => navigate("/checkout")} className="checkout-button">Checkout</button>
+          <button onClick={() => navigate("/checkout/userAddress")} className="checkout-button">Checkout</button>
         {/* </div> */}
     </div>
   ))
