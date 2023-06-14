@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faThLarge, faHeart, faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faThLarge, faHeart, faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
 
 import "../styles/navigation.css"
 import { useContext } from "react";
