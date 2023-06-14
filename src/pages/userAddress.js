@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { AddressContext } from "../contexts/addressContext";
 
@@ -50,18 +51,17 @@ export const AddressPage = () => {
         setIsFormValid(true);
     }
 
-
     const handleGoToNext = () => {
      if(addressData.address.includes(addressData.selectedAddress)) {
       navigate("/checkout/orderSummary")
+     } else {
+      toast.info('Please select an address')
      }
     }
 
     const getAddressPage = () => <div className="address-container">
         <h2>Shipping Address</h2>
         <p>Choose from saved addresses:</p>
-        <p>{addressData.address.length === 0 ? "No addresses added. Add one below!" : null}</p>
-        {!(addressData.address.includes(addressData.selectedAddress)) && <p>Please select an address by clicking on it!</p>}
         <div>
         {addressData?.address?.map((address, index) => (
             <div
@@ -106,7 +106,7 @@ export const AddressPage = () => {
             <input
             className="address-input"
             required
-            type="text"
+            type="number"
             placeholder="Zipcode"
             onChange={(e) => setNewAddress({ ...newAddress, zipcode: e.target.value })}
             />
