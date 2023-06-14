@@ -4,6 +4,7 @@ export const AddressContext = createContext();
 
 export const AddressProvider = ({ children }) => {
   const resetAddress = {
+    id: "",
     name: "",
     street: "",
     city: "",
@@ -14,6 +15,7 @@ export const AddressProvider = ({ children }) => {
   };
 
   const initialAddress = {
+    id: "0",
     name: "Adarsh Balika",
     street: "123 Main Street",
     city: "Aurangabad",
@@ -30,7 +32,7 @@ export const AddressProvider = ({ children }) => {
   return (
     <AddressContext.Provider
       value={{
-        addressData, setAddressData, resetAddress
+        addressData, setAddressData, resetAddress, initialAddress
       }}
     >
       {children}
