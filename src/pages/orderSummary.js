@@ -1,10 +1,11 @@
 import { useContext } from "react"
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import "../styles/orderSummary.css"
 
 import { AddressContext } from "../contexts/addressContext"
 import { ProductContext } from "../contexts/productContext";
-
-import "../styles/orderSummary.css"
-import { useNavigate } from "react-router-dom";
 import { CartContext } from "../contexts/cartContext";
 
 export const OrderSummary = () => {
@@ -28,6 +29,7 @@ export const OrderSummary = () => {
             product.carted = false;
             product.qty = 0
         });
+        toast.success('Order Placed Successfully')
         setCartItems([]);
     }
 
