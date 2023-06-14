@@ -53,19 +53,6 @@ export const AddressManagement = () => {
         setNewAddress(resetAddress)
     }
 
-    // const handleEditAddress = (index) => {
-    //   const editedAddress = { ...addressData.address[index], id: index };
-    //   setNewAddress(editedAddress);
-    //   setShowAddAddressPopup(true);
-    
-    //   if (isEqual(editedAddress, addressData.selectedAddress)) {
-    //     setAddressData((prevData) => ({
-    //       ...prevData,
-    //       selectedAddress: editedAddress,
-    //     }));
-    //   }
-    // };  
-
     const handleEditAddress = (index) => {
       setNewAddress({ ...addressData.address[index], id: index });
       setShowAddAddressPopup(true);
@@ -136,7 +123,7 @@ export const AddressManagement = () => {
             <input
             className="address-input"
             required
-            type="text"
+            type="number"
             placeholder="Zipcode"
             value={newAddress.zipcode}
             onChange={(e) => setNewAddress({ ...newAddress, zipcode: e.target.value })}
