@@ -1,7 +1,10 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import "../styles/cart.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinusCircle, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
@@ -46,7 +49,8 @@ export const Cart = () => {
   const handleRemoveFromCart = (product) => {
     deleteCartHandler(product._id, token);
     product.carted = false;
-    product.qty--;
+    product.qty = 0;
+    toast.warning('Item Removed from Cart!');
   }
 
   const handleMoveToWishlist = (product) => {
@@ -56,8 +60,9 @@ export const Cart = () => {
       deleteCartHandler(product._id, token);
       product.carted = false;
       product.qty--;
+      toast.success('Item Moved To Wishlist!');
     } else if (product.wished === true) {
-      //toast that it already exists in wishlist
+      toast.warning('Item already exists in Wishlist!');
     }
   }
 
