@@ -7,13 +7,16 @@ import { useContext } from "react";
 import { FilterContext } from "../contexts/filterContext";
 
 export const Navigation = () => {
-    const {filter, setFilter} = useContext(FilterContext);
+    const { filterDispatch, filterState } = useContext(FilterContext);
 
     const navigate = useNavigate()
 
     const handleSearch = (e) => {
+        filterDispatch({
+            type: "filter_by_search",
+            payload: e.target.value,
+        })
         navigate("/products")
-        setFilter({...filter, search: e.target.value})
     }
     return (
         <>
@@ -22,7 +25,7 @@ export const Navigation = () => {
                     <h1>SilkCraft</h1>
                 </NavLink>
                 <div className="inputDiv">
-                    <input type="search" placeholder="🔍 Search" className="input" onChange={(e) => handleSearch(e)}></input>
+                    <input type="search" placeholder="🔍 Search" className="input" onChange={(e) => handleSearch(e)} value={filterState?.search}></input>
                 </div>
                 <div className="navDiv">
                     <NavLink to="/products">
