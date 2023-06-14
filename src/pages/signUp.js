@@ -1,10 +1,9 @@
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-
-// import { toast } from "react-toastify";
 
 import { useAuth } from "../contexts/authContext";
 
@@ -29,7 +28,7 @@ export const SignUp = () => {
   const handleUserSignUp = (event) => {
     event.preventDefault();
     signupHandler(signUpData);
-    // toast.success("Signed up!");
+    toast.success("Successfully Signed up!");
   };
 
   const togglePasswordVisibility = (event) => {
