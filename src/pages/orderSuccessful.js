@@ -1,4 +1,5 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+
 import "../styles/orderSuccessful.css"
 
 export const OrderSuccessful = () => {
