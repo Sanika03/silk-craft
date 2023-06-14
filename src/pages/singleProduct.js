@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import "../styles/singleProduct.css";
 
@@ -30,6 +32,7 @@ export const ProductDetails = () => {
         postCartHandler(item, token)
         item.carted = true;
         item.qty++
+        toast.success('Item Added to Cart!');
       } else if (carted === true) {
         navigate("/cart") ;
       }
@@ -44,9 +47,11 @@ export const ProductDetails = () => {
       if (wished === false) {
         postWishlistHandler(item, token)
         item.wished = true;
+        toast.success('Item Added to Wishlist!');
       } else if (wished === true) {
         deleteWishlistHandler(item._id, token)
         item.wished = false;
+        toast.warning('Item Removed from Wishlist!');
       }
     }
   }
