@@ -1,7 +1,10 @@
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import "../styles/wishlist.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
@@ -31,19 +34,22 @@ export const Wishlist = () => {
             postCartHandler(product, token)
             product.carted = true;
             product.qty++;
+            toast.success('Item Added to Cart!');
         } else if (product.carted === true) {
             incDecCartHandler(product._id, token, 'increment');
             product.qty++;
+            toast.success('Added one more item to Cart!');
         }
         product.wished = false;
-        deleteWishlistHandler(product._id, token)
-        event.stopPropagation()
+        deleteWishlistHandler(product._id, token);
+        event.stopPropagation();
       }
     
       const handleRemoveFromWishlist = (product, event) =>{
           deleteWishlistHandler(product._id, token)
           product.wished = false;
-        event.stopPropagation()
+          toast.warning('Item Removed From Wishlist!');
+          event.stopPropagation();
       }
 
     const showProducts = () => wishlistItems && (
@@ -78,7 +84,7 @@ export const Wishlist = () => {
       <button onClick={() => navigate("/products")} className="explore-button">Explore</button>
     </div> : null
 
-    const getLoader = () => isWishlistLoading && <img src="/images/loader/loader.gif" className="loader"/>  
+    const getLoader = () => isWishlistLoading && <img src="/images/loader/loader.gif" className="loader" alt="Loader"/>  
 
     return (
         <>
