@@ -18,7 +18,7 @@ export const AddressPage = () => {
         setAddressData((prevData) => ({
           ...prevData,
           address: [...prevData.address, newAddress],
-        }));
+        }));  
         setNewAddress(resetAddress);
         setShowAddAddressPopup(false);
         setIsFormValid(true);
@@ -27,10 +27,10 @@ export const AddressPage = () => {
       }
     };
   
-    const handleSelectAddress = (selectedAddress) => {
+    const handleSelectAddress = (address) => {
       setAddressData((prevData) => ({
         ...prevData,
-        selectedAddress: selectedAddress,
+        selectedAddress: address,
       }));
     };
   
@@ -50,9 +50,18 @@ export const AddressPage = () => {
         setIsFormValid(true);
     }
 
+
+    const handleGoToNext = () => {
+     if(addressData.address.includes(addressData.selectedAddress)) {
+      navigate("/checkout/orderSummary")
+     }
+    }
+
     const getAddressPage = () => <div className="address-container">
         <h2>Shipping Address</h2>
         <p>Choose from saved addresses:</p>
+        <p>{addressData.address.length === 0 ? "No addresses added. Add one below!" : null}</p>
+        {!(addressData.address.includes(addressData.selectedAddress)) && <p>Please select an address by clicking on it!</p>}
         <div>
         {addressData?.address?.map((address, index) => (
             <div
@@ -63,8 +72,8 @@ export const AddressPage = () => {
             onClick={() => handleSelectAddress(address)}
             className="address-select-container"
             >
-            {Object.entries(address).map(([key, value]) => (
-                <div key={key}>{value}</div>
+            {Object.entries(address).map(([key, value], index) => (
+              index !== 0 && <div key={key}>{value}</div>
             ))}
             </div>
         ))}
@@ -121,7 +130,7 @@ export const AddressPage = () => {
         )}
 
         <button onClick={() => setShowAddAddressPopup(true)} className="address-action-button final">Add Address</button>
-        <button onClick={() => navigate("/checkout/orderSummary")} className="address-action-button final">Next</button>
+        <button onClick={() => handleGoToNext()} className="address-action-button final">Next</button>
     </div>
   
     return (
