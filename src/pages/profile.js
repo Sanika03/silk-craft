@@ -4,8 +4,10 @@ import { faCircleUser, faEnvelope, faPen, faCheck } from "@fortawesome/free-soli
 import "../styles/profile.css";
 import { useAuth } from "../contexts/authContext";
 import { useState } from "react";
-import { AddressManagement } from "../components/addressManagement";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import { AddressManagement } from "../components/addressManagement";
 
 export const Profile = () => {
     const { currUser, logoutHandler } = useAuth();
@@ -19,6 +21,7 @@ export const Profile = () => {
     const handleLogout = () => {
         logoutHandler();
         navigate("/logout");
+        toast.warning('Successfully Logged Out!');
     }
 
     const handleEditUserName = () => {
