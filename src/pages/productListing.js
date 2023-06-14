@@ -1,7 +1,11 @@
   import { useContext } from "react";
   import { useNavigate, useLocation } from "react-router-dom";
 
+  import { toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+
   import "../styles/products.css";
+  
   import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
   import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
@@ -43,6 +47,7 @@
           navigate("/cart") ;
         }
       }
+      toast.success('Item Added to Cart!');
       event.stopPropagation()
     }
 
@@ -54,9 +59,11 @@
         if (product.wished === false) {
           postWishlistHandler(product, token)
           product.wished = true;
+          toast.success('Item Added to Wishlist!');
         } else if (product.wished === true) {
           deleteWishlistHandler(product._id, token)
           product.wished = false;
+          toast.warning('Item Removed from Wishlist!');
         }
       }
       event.stopPropagation()
@@ -140,7 +147,7 @@
 
     const noProducts = () => searchFilterData.length === 0 && <h2 className="no-products">No products to display!</h2>
 
-    const getLoader = () => isProductLoading && <img src="/images/loader/loader.gif" className="loader"/>  
+    const getLoader = () => isProductLoading && <img src="/images/loader/loader.gif" className="loader" alt="Loader"/>  
 
     const showProducts = () => (
       <div className="product-container">
