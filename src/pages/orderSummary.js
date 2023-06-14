@@ -80,7 +80,7 @@ export const OrderSummary = () => {
         <div className="delivery-details-card">
         <h2 className="delivery-details-heading">Delivery Details</h2>
         <h3>{addressData.selectedAddress.name}</h3>
-        <p>{Object.values(addressData.selectedAddress).slice(1).join(", ")}</p>
+        <p>{Object.values(addressData.selectedAddress).slice(2).join(", ")}</p>
         </div>
     );
 
