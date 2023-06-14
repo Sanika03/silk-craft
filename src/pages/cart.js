@@ -14,7 +14,6 @@ export const Cart = () => {
   const { incDecCartHandler, deleteCartHandler, isCartLoading } = useContext(CartContext);
   const { postWishlistHandler } = useContext(WishlistContext);
   const { products } = useContext(ProductContext)
-  const { cartItems } = useContext(CartContext);
 
   const cartData = products.filter((el) => el.carted);
 
