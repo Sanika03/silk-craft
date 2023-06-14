@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+.profile-page {
+    font-family: 'Nunito sans', sans-serif;
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-card {
+    border-radius: 0.5rem;
+    width: 30rem;
+    padding: 1rem 2rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.saved-address-container {
+    border: 1px solid;
+    padding: 0 0.5rem 0.7rem 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.address-head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-address-btn {
+    height: 1.5rem;
+    width: 4rem;
+    font-family: 'Nunito sans', sans-serif;
+    font-size: 16px;
+    margin: 16px 0;
+    color: white;
+    background-color: black;
+    border: 1px solid;
+}
+
+.add-address-btn:hover, .logout-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.logout-btn {
+    font-family: 'Nunito sans', sans-serif;
+    font-size: 16px;
+    color: white;
+    background-color: black;
+    border: 1px solid;
+    margin-top: 1rem;
+    padding: 8px 0;
+    width: 5rem;
+}
+
+.icons {
+    font-size: larger;
+    background-color: white;
+    border: none;
+}
+
+.user-head, .email-head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-head {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.user-head-details, .email-head-details {
+    display: flex;
+}
+
+.user-name {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.address-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.profile-icon, .pen-icon, .mail-icon {
+    margin: 16px 0;
+}
+
+.profile-icon, .mail-icon {
+    margin-right: 0.6rem;
+}
+
+.pen-icon {
+    background-color: white;
+    border: none;
+}
+
+.check-icon{
+    font-size: large;
+    background-color: white;
+    border: none;
+}
+
+.edit-username-input, .edit-email-input {
+    width: 20rem;
+    height: 2rem;
+    margin-top: 16px;
+}
+
+.edit-email-input {
+    margin: 10px 0;
+}
