@@ -1,5 +1,7 @@
 import React from "react";
 import {Routes, Route, Navigate} from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Mockman from "mockman-js";
 
 import { Navigation } from "./components/navigation";
@@ -22,6 +24,18 @@ import { OrderSuccessful } from "./pages/orderSuccessful";
 function App() {
   return (
     <div className="App">
+      <div>
+      <ToastContainer
+        position='bottom-right'
+        autoClose={3000}
+        newestOnTop={false}
+        closeOnClick
+        theme='colored'
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+      />
+      </div>
       <Navigation />
       <Routes>
         <Route path="/mockMan" element={<Mockman />} />
