@@ -8,7 +8,7 @@ import "../styles/home.css"
 
 
 export const Home = () => {
-    const {filter, setFilter} = useContext(FilterContext);
+    const { filterDispatch } = useContext(FilterContext);
     const {categories, isCategoryLoading} = useContext(ProductContext);
 
     const navigate = useNavigate();
@@ -28,7 +28,7 @@ export const Home = () => {
 
     const goToSelectedProducts = (categoryName) => {
         navigate("/products");
-        setFilter({ ...filter, category: [categoryName] });
+        filterDispatch({ type: "filter_by_category", payload: categoryName })
     }
 
     const getCategoryProducts = () => (
@@ -42,7 +42,7 @@ export const Home = () => {
             </div>
     )
 
-    const getLoader = () => isCategoryLoading && <img src="/images/loader/loader.gif" className="loader"/>  
+    const getLoader = () => isCategoryLoading && <img src="/images/loader/loader.gif" className="loader" alt="Loader"/>  
 
     return (
         <>
