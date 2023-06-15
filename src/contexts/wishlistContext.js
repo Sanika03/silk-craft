@@ -39,7 +39,7 @@ export const WishlistProvider = ({children}) => {
   }
 
   useEffect(() => {
-    const getWishlistHandler = async () => {
+    (async () => {
       try {
         const response = await GetWishList({encodedToken: token})
         setIsWishlistLoading(false);
@@ -49,9 +49,7 @@ export const WishlistProvider = ({children}) => {
       } catch (error) {
         console.log(error);
       }
-    };
-  
-    getWishlistHandler();
+    })();
   }, [token]);
 
   return (

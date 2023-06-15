@@ -54,7 +54,7 @@ export const CartProvider = ({children}) => {
   }
 
   useEffect(() => {
-    const getCartHandler = async () => {
+    (async () => {
       try {
         const response = await GetCartList({encodedToken: token})
         setIsCartLoading(false)
@@ -64,9 +64,7 @@ export const CartProvider = ({children}) => {
       } catch (error) {
         console.log(error);
       }
-    }
-
-    getCartHandler();
+    })();
   }, [token]);
 
   return (
