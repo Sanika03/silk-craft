@@ -69,7 +69,9 @@ export const CartProvider = ({children}) => {
     if(token) {
       getCartHandler();
     }
-  }, [getCartHandler, token]);
+
+    getCartHandler();
+  }, [token]);
 
   return (
     <CartContext.Provider value={{cartItems, setCartItems, postCartHandler, deleteCartHandler, incDecCartHandler, isCartLoading}}>

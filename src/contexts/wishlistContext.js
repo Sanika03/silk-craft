@@ -51,10 +51,20 @@ export const WishlistProvider = ({children}) => {
   }
 
   useEffect(() => {
-    if (token) {
-      getWishlistHandler();
-    }
-  }, [getWishlistHandler, token]);
+    const getWishlistHandler = async () => {
+      try {
+        const response = await GetWishList({encodedToken: token})
+        setIsWishlistLoading(false);
+        if (response.status === 200) {
+          setWishlistItems(response.data.wishlistItems)
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    getWishlistHandler();
+  }, [token]);
 
   return (
     <WishlistContext.Provider value={{wishlistItems, postWishlistHandler, deleteWishlistHandler, isWishlistLoading}}>
