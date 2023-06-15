@@ -26,12 +26,13 @@ export const OrderSummary = () => {
     const handlePlaceOrder = () => {
         navigate("/orderSuccessful");
         products.map((product) => {
-            product.carted = false;
-            product.qty = 0
+          product.carted = false;
+          product.qty = 0;
+          return product;
         });
-        toast.success('Order Placed Successfully')
+        toast.success('Order Placed Successfully');
         setCartItems([]);
-    }
+      };
 
     const productDetailsCard = () => <div className="sub-card">
         <h2 className="products-summary-heading">Product Details</h2>
