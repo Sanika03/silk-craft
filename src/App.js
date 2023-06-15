@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Mockman from "mockman-js";
 
-import { Navigation } from "./components/navigation";
+import { Navigation } from "./components/Navigation";
 import { Footer } from "./components/footer";
 import { PrivateRoute } from "./components/privateRoute";
 import { Home } from "./pages/home"
