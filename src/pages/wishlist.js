@@ -84,7 +84,7 @@ export const Wishlist = () => {
       <button onClick={() => navigate("/products")} className="explore-button">Explore</button>
     </div> : null
 
-    const getLoader = () => isWishlistLoading && <img src="/images/loader/loader.gif" className="loader" alt="Loader"/>  
+    // const getLoader = () => isWishlistLoading && <img src="/images/loader/loader.gif" className="loader" alt="Loader"/>  
 
     return (
         <>
@@ -93,7 +93,7 @@ export const Wishlist = () => {
               {emptyWishlistMessage()}
               {showProducts()}
             </div>
-          ) : getLoader()}
+          ) : null}
         </>
     )
 }
