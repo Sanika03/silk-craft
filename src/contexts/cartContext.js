@@ -1,4 +1,4 @@
-import { useEffect, useState, createContext, useCallback } from "react";
+import { useEffect, useState, createContext } from "react";
 
 import { useAuth } from "../contexts/authContext";
 import { DeleteCart, GetCartList, IncDecCart, PostCart } from "../services/services";
@@ -9,18 +9,6 @@ export const CartProvider = ({children}) => {
   const [cartItems, setCartItems] = useState([]);
   const [isCartLoading, setIsCartLoading] = useState(true);
   const { token } = useAuth();
-
-  const getCartHandler = useCallback(async () => {
-    try {
-      const response = await GetCartList({ encodedToken: token });
-      setIsCartLoading(false);
-      if (response.status === 200) {
-        setCartItems(response.data.cart);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }, [token]); 
 
   const postCartHandler = async (item, token) => {
       try {
