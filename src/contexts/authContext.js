@@ -25,7 +25,6 @@ const AuthProvider = ({ children }) => {
         );
         setCurrUser(foundUser);
         setToken(encodedToken);
-        // ToastHandler(ToastType.Success, 'Successfully logged in');
       }
     } catch (err) {
       console.log(err);
@@ -51,7 +50,6 @@ const AuthProvider = ({ children }) => {
         );
         setCurrUser(createdUser);
         setToken(encodedToken);
-        // ToastHandler(ToastType.Success, 'Successfully signed in');
       }
     } catch (err) {
       console.log(err);
