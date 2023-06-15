@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 
 .navHeader {
     background-color:  #D1EFD2;
@@ -13,34 +13,75 @@
     width: 98%; 
     left: 0;
     z-index: 999;
+    justify-content: space-between;
 }
 
 .titleName {
     font-family: 'Dancing Script', cursive;
     font-size: 20px;
-    flex-grow: 1;
     color: black;
     text-decoration: none;
 }
 
+.titleName:hover {
+    opacity: 0.5;
+}
+
 .inputDiv {
-    flex-grow: 1;
+    width: 40%;
+    display: flex;
+    justify-content: center;
 }
 
-.navDiv {
-    justify-content: flex-end;
-}
-
-.input {
-    font-family: 'Lato', sans-serif;
-    width: 60%;
+.input-search {
+    font-family: 'Nunito sans', sans-serif;
+    font-size: 1rem;
+    width: 80%;
+    padding: 0 0.8rem;
     height: 2.3rem;
-    border: 1px solid;
+    transition: all .4s ease;
+    border: 1.5px solid;
     border-radius: 5px;
 }
 
 .navIcon {
     font-size: 1.5rem;
-    padding: 10px;
+    padding: 5px 10px;
     color: black;
+    margin: 1rem 0.5rem 0.5rem 0;
+}
+
+.navIcon:hover {
+    opacity: 0.5;
+}
+
+.navDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.go-to-products-btn {
+    font-family: 'Nunito sans', sans-serif;
+    font-size: 20px;
+    padding: 5px 10px;
+    margin: 1rem 0.5rem 0.5rem 0;
+    color: black;
+    text-decoration: none;
+    position: relative;
+}
+
+.go-to-products-btn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 95%;
+    height: 2px;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+}
+
+.go-to-products-btn:hover::after {
+    opacity: 1;
 }
