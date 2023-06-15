@@ -25,12 +25,10 @@ export const Navigation = () => {
                     <h1>SilkCraft</h1>
                 </NavLink>
                 <div className="inputDiv">
-                    <input type="search" placeholder="🔍 Search" className="input" onChange={(e) => handleSearch(e)} value={filterState?.search}></input>
+                    <input type="search" placeholder="Search" className="input-search" onChange={(e) => handleSearch(e)} value={filterState?.search}></input>
                 </div>
                 <div className="navDiv">
-                    <NavLink to="/products">
-                        <FontAwesomeIcon icon={faThLarge} className="navIcon" />
-                    </NavLink>
+                    <a href="/products" className="go-to-products-btn">Products</a>
                     <NavLink to="/wishlist">
                         <FontAwesomeIcon icon={faHeart} className="navIcon" />
                     </NavLink> 
