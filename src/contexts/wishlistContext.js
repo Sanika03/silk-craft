@@ -10,18 +10,6 @@ export const WishlistProvider = ({children}) => {
   const [isWishlistLoading, setIsWishlistLoading] = useState(true);
   const { token } = useAuth();
 
-  const getWishlistHandler = async () => {
-    try {
-      const response = await GetWishList({encodedToken: token})
-      setIsWishlistLoading(false);
-      if (response.status === 200) {
-        setWishlistItems(response.data.wishlistItems)
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const postWishlistHandler = async (item, token) => {
     try {
       const response = await PostWishList({
@@ -51,8 +39,20 @@ export const WishlistProvider = ({children}) => {
   }
 
   useEffect(() => {
+    const getWishlistHandler = async () => {
+      try {
+        const response = await GetWishList({encodedToken: token})
+        setIsWishlistLoading(false);
+        if (response.status === 200) {
+          setWishlistItems(response.data.wishlistItems)
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
     getWishlistHandler();
-  }, []);
+  }, [token]);
 
   return (
     <WishlistContext.Provider value={{wishlistItems, postWishlistHandler, deleteWishlistHandler, isWishlistLoading}}>

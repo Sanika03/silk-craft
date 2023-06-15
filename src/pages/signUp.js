@@ -45,7 +45,7 @@ export const SignUp = () => {
     if (token) {
       navigate(location?.state?.from.pathname || '/', { replace: true });
     }
-  }, [token]);
+  }, [token, location, navigate]);
 
   return (
     <div className="signup-component">

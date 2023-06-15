@@ -43,7 +43,7 @@ export const Login = () => {
     if (token) {
       navigate(location?.state?.from.pathname || '/', { replace: true });
     }
-  }, [token]);
+  }, [token, location, navigate]);
 
   const loginPage = () => <div className="login-component">
     <form onSubmit={(e) => handleUserLogin(e)} className="login-page">

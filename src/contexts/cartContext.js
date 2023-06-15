@@ -67,7 +67,7 @@ export const CartProvider = ({children}) => {
 
   useEffect(() => {
     getCartHandler();
-  }, []);
+  });
 
   return (
     <CartContext.Provider value={{cartItems, setCartItems, postCartHandler, deleteCartHandler, incDecCartHandler, isCartLoading}}>
