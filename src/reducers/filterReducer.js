@@ -36,6 +36,9 @@ export const filterReducer = (filterState, action) => {
         
       case "clear_filters":
         return {...initialFilters};
+
+      default:
+        return filterState;
     }
   };
   
