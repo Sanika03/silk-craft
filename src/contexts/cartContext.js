@@ -10,18 +10,6 @@ export const CartProvider = ({children}) => {
   const [isCartLoading, setIsCartLoading] = useState(true);
   const { token } = useAuth();
 
-  const getCartHandler = async () => {
-    try {
-      const response = await GetCartList({encodedToken: token})
-      setIsCartLoading(false)
-      if (response.status === 200) {
-        setCartItems(response.data.cart)
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const postCartHandler = async (item, token) => {
       try {
         const response = await PostCart({
@@ -66,8 +54,20 @@ export const CartProvider = ({children}) => {
   }
 
   useEffect(() => {
+    const getCartHandler = async () => {
+      try {
+        const response = await GetCartList({encodedToken: token})
+        setIsCartLoading(false)
+        if (response.status === 200) {
+          setCartItems(response.data.cart)
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
     getCartHandler();
-  });
+  }, [token]);
 
   return (
     <CartContext.Provider value={{cartItems, setCartItems, postCartHandler, deleteCartHandler, incDecCartHandler, isCartLoading}}>
