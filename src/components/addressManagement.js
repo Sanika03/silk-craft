@@ -5,7 +5,7 @@ import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { AddressContext } from '../contexts/addressContext';
 
 export const AddressManagement = () => {    
-    const { addressData, setAddressData, resetAddress, initialAddress } = useContext(AddressContext);
+    const { addressData, setAddressData, resetAddress } = useContext(AddressContext);
     const [showAddAddressPopup, setShowAddAddressPopup] = useState(false);
     const [newAddress, setNewAddress] = useState(resetAddress);
     const [isFormValid, setIsFormValid] = useState(true);
@@ -84,7 +84,7 @@ export const AddressManagement = () => {
               }}
               className="address-select-container"
             >
-              {Object.values(address).slice(1, -1) .join(", ")}
+              {Object.values(address).slice(1, -1).join(", ")}
               <div className="customize-address-container">
                 <button className="icons" onClick={() => handleEditAddress(index)}><FontAwesomeIcon icon={faPenToSquare}/></button>
                 <button className="icons" onClick={() => handleDeleteAddress(index)}><FontAwesomeIcon icon={faTrash}/></button>
