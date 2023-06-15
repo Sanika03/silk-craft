@@ -1,4 +1,4 @@
-import { useEffect, useState, createContext } from "react";
+import { useEffect, useState, createContext, useCallback } from "react";
 
 import { useAuth } from "../contexts/authContext";
 import { GetWishList, PostWishList, DeleteWish } from "../services/services";
@@ -9,6 +9,18 @@ export const WishlistProvider = ({children}) => {
   const [wishlistItems, setWishlistItems] = useState([]);
   const [isWishlistLoading, setIsWishlistLoading] = useState(true);
   const { token } = useAuth();
+
+  const getWishlistHandler = useCallback(async () => {
+    try {
+      const response = await GetWishList({ encodedToken: token });
+      setIsWishlistLoading(false);
+      if (response.status === 200) {
+        setWishlistItems(response.data.wishlistItems);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [token]);
 
   const postWishlistHandler = async (item, token) => {
     try {
@@ -39,20 +51,10 @@ export const WishlistProvider = ({children}) => {
   }
 
   useEffect(() => {
-    const getWishlistHandler = async () => {
-      try {
-        const response = await GetWishList({encodedToken: token})
-        setIsWishlistLoading(false);
-        if (response.status === 200) {
-          setWishlistItems(response.data.wishlistItems)
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-  
-    getWishlistHandler();
-  }, [token]);
+    if (token) {
+      getWishlistHandler();
+    }
+  }, [getWishlistHandler, token]);
 
   return (
     <WishlistContext.Provider value={{wishlistItems, postWishlistHandler, deleteWishlistHandler, isWishlistLoading}}>
