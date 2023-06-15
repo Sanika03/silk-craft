@@ -1,9 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 import { SignUpService, LoginService } from "../services/services";
 
-// import { ToastType } from '../DataReducer/constants';
-// import { ToastHandler } from '../utils/utils';
-
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
@@ -25,7 +22,6 @@ const AuthProvider = ({ children }) => {
         );
         setCurrUser(foundUser);
         setToken(encodedToken);
-        // ToastHandler(ToastType.Success, 'Successfully logged in');
       }
     } catch (err) {
       console.log(err);
@@ -51,7 +47,6 @@ const AuthProvider = ({ children }) => {
         );
         setCurrUser(createdUser);
         setToken(encodedToken);
-        // ToastHandler(ToastType.Success, 'Successfully signed in');
       }
     } catch (err) {
       console.log(err);
