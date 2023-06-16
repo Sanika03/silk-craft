@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 import { AddressManagement } from "../components/addressManagement";
 
 export const Profile = () => {
-    const { currUser, logoutHandler } = useAuth();
+    const { currUser, logoutHandler, setCurrUser } = useAuth();
 
     const [isEditing, setIsEditing] = useState({ userName: false, email: false});
     const [updatedUsername, setUpdatedUsername] = useState("");
@@ -27,12 +27,12 @@ export const Profile = () => {
     const handleEditUserName = () => {
         setIsEditing({...isEditing, userName: true});
         setUpdatedUsername(`${currUser.firstName} ${currUser.lastName}`);
-      };
+    };
 
     const handleSaveUsername = () => {
         const [updatedFirstName, updatedLastName] = updatedUsername.split(" ");
-        currUser.firstName = updatedFirstName;
-        currUser.lastName = updatedLastName;
+        setCurrUser({...currUser, firstName: updatedFirstName});
+        setCurrUser({...currUser, lastName: updatedLastName});
         setIsEditing({...isEditing, userName: false});
     }
 
@@ -43,7 +43,8 @@ export const Profile = () => {
 
     const handleSaveEmail = () => {
         setIsEditing({...isEditing, email: false});
-        currUser.email = updatedEmail;
+        setCurrUser({...currUser, email: updatedEmail});
+        console.log(currUser.email) 
       };
     
     const getProfileCard = () => <div className="profile-card">
