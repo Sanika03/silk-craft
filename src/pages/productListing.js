@@ -85,7 +85,7 @@
                   type="checkbox"
                   name="categoryFilter"
                   value={categoryName}
-                  checked={filterState?.category?.includes(categoryName)}
+                  defaultChecked={filterState?.category?.includes(categoryName)}
                   onClick={() =>
                     filterDispatch({ type: "filter_by_category", payload: categoryName })
                   }
@@ -121,7 +121,7 @@
                 type="radio"
                 name="priceSort"
                 value="lowToHigh"
-                checked={filterState?.sortby?.includes("lowToHigh")}
+                defaultChecked={filterState?.sortby?.includes("lowToHigh")}
                 onClick={() =>
                   filterDispatch({ type: "sort_by_price", payload: "lowToHigh" })
                 }
@@ -133,7 +133,7 @@
                 type="radio"
                 name="priceSort"
                 value="highToLow"
-                checked={filterState?.sortby?.includes("highToLow")}
+                defaultChecked={filterState?.sortby?.includes("highToLow")}
                 onClick={() =>
                   filterDispatch({ type: "sort_by_price", payload: "highToLow" })
                 }
