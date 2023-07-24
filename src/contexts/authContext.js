@@ -9,7 +9,6 @@ const AuthProvider = ({ children }) => {
   const [currUser, setCurrUser] = useState(localStorageToken?.user);
 
   const loginHandler = async (loginData) => {
-    
     try {
       const {
         data: { foundUser, encodedToken },
@@ -34,12 +33,12 @@ const AuthProvider = ({ children }) => {
     setCurrUser(null);
   };
 
-  const signupHandler = async (email, password, name) => {
+  const signupHandler = async (signUpData) => {
     try {
       const {
         data: { createdUser, encodedToken },
         status,
-      } = await SignUpService({ email, password, name });
+      } = await SignUpService( signUpData );
       if (status === 200 || status === 201) {
         localStorage.setItem(
           'loginItems',
