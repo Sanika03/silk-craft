@@ -1,8 +1,10 @@
 import { useState, createContext } from "react";
+import { useAuth } from "./authContext";
 
 export const AddressContext = createContext();
 
 export const AddressProvider = ({ children }) => {
+  const { currUser } = useAuth();
   const resetAddress = {
     id: "",
     name: "",
@@ -16,7 +18,7 @@ export const AddressProvider = ({ children }) => {
 
   const initialAddress = {
     id: "0",
-    name: "Adarsh Balika",
+    name: `${currUser?.name}`,
     street: "123 Main Street",
     city: "Aurangabad",
     zipcode: "431001",
