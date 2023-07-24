@@ -26,13 +26,11 @@ export const Profile = () => {
 
     const handleEditUserName = () => {
         setIsEditing({...isEditing, userName: true});
-        setUpdatedUsername(`${currUser.firstName} ${currUser.lastName}`);
+        setUpdatedUsername(currUser.name);
     };
 
     const handleSaveUsername = () => {
-        const [updatedFirstName, updatedLastName] = updatedUsername.split(" ");
-        setCurrUser({...currUser, firstName: updatedFirstName});
-        setCurrUser({...currUser, lastName: updatedLastName});
+        setCurrUser({...currUser, name: updatedUsername});
         setIsEditing({...isEditing, userName: false});
     }
 
@@ -60,7 +58,7 @@ export const Profile = () => {
                     />
                 ) : (
                     <p className="user-name">
-                    {currUser.firstName} {currUser.lastName}
+                    {currUser.name}
                     </p>
                 )}
             </div>
