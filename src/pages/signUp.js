@@ -2,6 +2,8 @@ import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
+import { v4 as uuid } from "uuid";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
@@ -16,6 +18,7 @@ export const SignUp = () => {
   const location = useLocation();
 
   const [signUpData, setSignUpData] = useState({
+    _id: uuid(),
     name: "",
     email: "",
     password: "",
