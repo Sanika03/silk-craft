@@ -13,27 +13,31 @@ import { WishlistContext } from "../contexts/wishlistContext";
 export const ProductDetails = () => {
   const { token } = useAuth();
   const {products} = useContext(ProductContext)
-  const { postCartHandler } = useContext(CartContext);
-  const { postWishlistHandler, deleteWishlistHandler } = useContext(WishlistContext);
+  const { postCartHandler, cartItems } = useContext(CartContext);
+  const { postWishlistHandler, deleteWishlistHandler, wishlistItems } = useContext(WishlistContext);
 
   const navigate = useNavigate();
   const location = useLocation();
   const { _id } = useParams();
 
   const item = products.find((el) => el._id === _id)
-  const { title, imageLink, description, rating, price, discountedPrice, carted, wished, inStock, size, deliveryTime, reviews } = item;
+  const { title, imageLink, description, rating, price, discountedPrice, inStock, size, deliveryTime, reviews } = item;
+
+  const isCarted = () => cartItems?.some((item) => item._id === _id) ?? false;  
+
+  const isWished = () => wishlistItems?.some((item) => item._id === _id) ?? false;
 
   const handleAddToCart = () => {
     if(!token){
       navigate('/login', { state: { from: location } });
     }
     else {
-      if (carted === false) {
+      if (!isCarted()) {
         postCartHandler(item, token)
         item.carted = true;
         item.qty++
         toast.success('Item Added to Cart!');
-      } else if (carted === true) {
+      } else {
         navigate("/cart") ;
       }
     }
@@ -44,11 +48,11 @@ export const ProductDetails = () => {
       navigate('/login', { state: { from: location } });
     }
     else {
-      if (wished === false) {
+      if (!isWished()) {
         postWishlistHandler(item, token)
         item.wished = true;
         toast.success('Item Added to Wishlist!');
-      } else if (wished === true) {
+      } else {
         deleteWishlistHandler(item._id, token)
         item.wished = false;
         toast.warning('Item Removed from Wishlist!');
@@ -74,11 +78,11 @@ export const ProductDetails = () => {
         <p className="text-m"><span className="text-bold">Size: </span>{size}</p>
         <p className="text-m"><span className="text-bold">Delivery Time: </span>{deliveryTime} days</p>
         <div className="button-container">
-        <button onClick={() => handleAddToCart()} className="item-button">
-          {carted ? "Go to cart" : "Add to cart"}
-        </button>
+          <button onClick={() => handleAddToCart()} className="item-button">
+            {isCarted() ? "Go to cart" : "Add to cart"}
+          </button>
           <button onClick={() => handleAddToWishlist()} className="item-button">
-          {wished ? "Remove from Wishlist" : "Add to Wishlist"}
+          {isWished() ? "Remove from Wishlist" : "Add to Wishlist"}
           </button>
         </div>
       </div>
