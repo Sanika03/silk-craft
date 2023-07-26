@@ -18,12 +18,9 @@
 
   export const ProductListing = () => {
     const { isProductLoading } = useContext(ProductContext);
-
     const { postCartHandler } = useContext(CartContext);
-
-    const { postWishlistHandler, deleteWishlistHandler } = useContext(WishlistContext);
-
-    const { filterDispatch, filterState, searchFilterData} = useContext(FilterContext);
+    const { postWishlistHandler, deleteWishlistHandler, wishlistItems } = useContext(WishlistContext);
+    const { filterDispatch, filterState, searchFilterData, cartItems} = useContext(FilterContext);
 
     const {token} = useAuth();
 
@@ -34,16 +31,30 @@
       navigate(`/products/${item._id}`);
     }
 
+    const isCarted = (product) => {
+      if (cartItems && cartItems.length > 0) {
+        return cartItems?.some((item) => item._id === product._id);  
+      }
+      return false;
+    };
+
+    const isWished = (product) => {
+      if (wishlistItems && wishlistItems.length > 0) {
+        return wishlistItems?.some((item) => item._id === product._id);
+      }
+      return false;
+    };
+
     const handleAddToCart = (product, event) => {
       if(!token){
         navigate('/login', { state: { from: location } });
       }
       else {
-        if (product.carted === false) {
-          postCartHandler(product, token)
+        if (!product.carted) {
+          postCartHandler(product, token);
           product.carted = true;
           product.qty++;
-        } else if (product.carted === true) {
+        } else {
           navigate("/cart") ;
         }
       }
@@ -51,17 +62,17 @@
       event.stopPropagation()
     }
 
-    const handleAddToWishlist = (product, event) =>{
+    const handleAddToWishlist = (product, event) => {
       if(!token){
         navigate('/login', { state: { from: location } });
       }
       else {
-        if (product.wished === false) {
-          postWishlistHandler(product, token)
+        if (!product.wished) {
+          postWishlistHandler(product, token);
           product.wished = true;
           toast.success('Item Added to Wishlist!');
-        } else if (product.wished === true) {
-          deleteWishlistHandler(product._id, token)
+        } else {
+          deleteWishlistHandler(product._id, token);
           product.wished = false;
           toast.warning('Item Removed from Wishlist!');
         }
@@ -163,16 +174,10 @@
                 <p className="text ratingText">{rating} ⭐</p>
               </div>
               <button onClick={(event) => handleAddToCart(product, event)} className="cartButton">
-              {carted === false ? (
-                <span>
-                  <FontAwesomeIcon icon={faShoppingCart} className="cartIcon"/> Add to Cart
-                </span>
-              ) : (
-                "Go to Cart"
-              )}
+                {carted || isCarted(product) ? "Go to cart" : "Add to cart"}
               </button>
               <button onClick={(event) => handleAddToWishlist(product, event)} className="wishlistButton">
-              {wished ? "Remove from Wishlist" : "Add to Wishlist"}
+                {wished && isWished(product) ? "Remove from Wishlist" : "Add to Wishlist"}
               </button>
             </div>
           );
