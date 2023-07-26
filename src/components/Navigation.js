@@ -5,13 +5,13 @@ import { faHeart, faShoppingCart, faUser } from "@fortawesome/free-solid-svg-ico
 import "../styles/navigation.css"
 import { useContext } from "react";
 import { FilterContext } from "../contexts/filterContext";
-import { ProductContext } from "../contexts/productContext";
+import { CartContext } from "../contexts/cartContext";
+import { WishlistContext } from "../contexts/wishlistContext";
 
 export const Navigation = () => {
     const { filterDispatch, filterState } = useContext(FilterContext);
-
-    const { products } = useContext(ProductContext);
-    const cartItems = products.filter((product) => product.carted);
+    const { cartItems } = useContext(CartContext);
+    const { wishlistItems } = useContext(WishlistContext);
 
     const navigate = useNavigate()
 
@@ -36,10 +36,11 @@ export const Navigation = () => {
                     <NavLink to="/wishlist">
                         <FontAwesomeIcon icon={faHeart} className="navIcon" />
                     </NavLink> 
+                    <p className="no-of-items"> {wishlistItems ? wishlistItems.length : 0}</p>
                     <NavLink to="/cart">
                         <FontAwesomeIcon icon={faShoppingCart} className="navIcon" />
                     </NavLink>
-                    <p>{cartItems.length}</p>
+                    <p className="no-of-items">{wishlistItems ? cartItems.length : 0}</p>
                     <NavLink to="/profile">
                         <FontAwesomeIcon icon={faUser} className="navIcon" />
                     </NavLink>
