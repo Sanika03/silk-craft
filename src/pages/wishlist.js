@@ -11,15 +11,10 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { CartContext } from "../contexts/cartContext";
 import { WishlistContext } from "../contexts/wishlistContext";
 import { useAuth } from "../contexts/authContext";
-import { ProductContext } from "../contexts/productContext";
 
 export const Wishlist = () => {
-
     const { postCartHandler, incDecCartHandler } = useContext(CartContext);
-    const { products } = useContext(ProductContext)
-    const { wishlistItems, deleteWishlistHandler, isWishlistLoading } = useContext(WishlistContext);
-
-    const wishlistData = products.filter((el) => el.wished);
+    const { deleteWishlistHandler, isWishlistLoading, wishlistItems } = useContext(WishlistContext);
   
     const {token} = useAuth();
   
@@ -54,7 +49,7 @@ export const Wishlist = () => {
 
     const showProducts = () => wishlistItems && (
         <div className="wishlist-product-container">
-          {wishlistData.map((product) => {
+          {wishlistItems.map((product) => {
             const { _id, title, price, discountedPrice, imageLink, rating } = product;
             return (
               <div key={_id} onClick={() => handleSingleProductClick(product)} className="product-item">
@@ -77,12 +72,14 @@ export const Wishlist = () => {
         </div>
       );
 
-    const emptyWishlistMessage = () => wishlistItems === undefined || wishlistItems.length === 0 ? <div className="empty-wishlist-container">
+      console.log(wishlistItems)
+
+    const emptyWishlistMessage = () => wishlistItems  === undefined || wishlistItems.length === 0 ? (<div className="empty-wishlist-container">
       <img src="/images/optional/emptyWishlist.png" alt="Empty Wishlist" className="wishlist-image"/>
       <h2>Your wishlist is empty</h2>
       <p>Start exploring and save your favorite items!</p>
       <button onClick={() => navigate("/products")} className="explore-button">Explore</button>
-    </div> : null
+    </div> ) : null
 
     const getLoader = () => isWishlistLoading && <img src="/images/loader/loader.gif" className="loader" alt="Loader"/>  
 
