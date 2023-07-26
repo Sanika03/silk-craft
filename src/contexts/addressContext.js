@@ -18,7 +18,7 @@ export const AddressProvider = ({ children }) => {
 
   const initialAddress = {
     id: "0",
-    name: `${currUser?.name}`,
+    name: `${currUser ? currUser?.name : "Adarsh Balika"}`,
     street: "123 Main Street",
     city: "Aurangabad",
     zipcode: "431001",
