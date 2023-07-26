@@ -6,8 +6,8 @@ import { GetWishList, PostWishList, DeleteWish } from "../services/services";
 export const WishlistContext = createContext();
 
 export const WishlistProvider = ({children}) => {
-  const [wishlistItems, setWishlistItems] = useState([]);
-  const [isWishlistLoading, setIsWishlistLoading] = useState(true);
+  const [wishlistItems, setWishlistItems] = useState();
+  const [isWishlistLoading, setIsWishlistLoading] = useState(false);
   const { token } = useAuth();
 
   const getWishlistHandler = async () => {
@@ -51,8 +51,10 @@ export const WishlistProvider = ({children}) => {
   }
 
   useEffect(() => {
-    getWishlistHandler()
-  }, []);
+    if (token) {
+      getWishlistHandler();
+    }
+  }, [token]);
 
   return (
     <WishlistContext.Provider value={{wishlistItems, postWishlistHandler, deleteWishlistHandler, isWishlistLoading}}>
