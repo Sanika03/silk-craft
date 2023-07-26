@@ -6,8 +6,8 @@ import { DeleteCart, GetCartList, IncDecCart, PostCart } from "../services/servi
 export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
-  const [cartItems, setCartItems] = useState([]);
-  const [isCartLoading, setIsCartLoading] = useState(true);
+  const [cartItems, setCartItems] = useState();
+  const [isCartLoading, setIsCartLoading] = useState(false);
   const { token } = useAuth();
 
   const getCartHandler = async () => {
@@ -29,7 +29,7 @@ export const CartProvider = ({children}) => {
           encodedToken: token
         })
         if (response.status === 200 || response.status === 201) {
-          setCartItems(response.data.cart)
+          setCartItems(response.data.cart);
         }
       } catch (e) {
         console.error(e)
@@ -66,11 +66,13 @@ export const CartProvider = ({children}) => {
   }
 
   useEffect(() => {
-    getCartHandler()
-  }, []);
+    if(token) {
+      getCartHandler();
+    }
+  },[token]);
 
   return (
-    <CartContext.Provider value={{cartItems, setCartItems, postCartHandler, deleteCartHandler, incDecCartHandler, isCartLoading}}>
+    <CartContext.Provider value={{cartItems, setCartItems, postCartHandler, deleteCartHandler, incDecCartHandler, isCartLoading, getCartHandler}}>
       {children}
     </CartContext.Provider>
   )
