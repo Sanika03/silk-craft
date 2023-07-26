@@ -32,7 +32,7 @@ export const Navigation = () => {
                     <input type="search" placeholder="Search" className="input-search" onChange={(e) => handleSearch(e)} value={filterState?.search}></input>
                 </div>
                 <div className="navDiv">
-                    <a href="/products" className="go-to-products-btn">Products</a>
+                    <NavLink to="/products" className="go-to-products-btn">Products</NavLink>
                     <NavLink to="/wishlist">
                         <FontAwesomeIcon icon={faHeart} className="navIcon" />
                     </NavLink> 
