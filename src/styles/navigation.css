@@ -49,6 +49,7 @@
     padding: 5px 10px;
     color: black;
     margin: 1rem 0.5rem 0.5rem 0;
+    position: relative;
 }
 
 .navIcon:hover {
@@ -84,4 +85,22 @@
 
 .go-to-products-btn:hover::after {
     opacity: 1;
+}
+
+.no-of-items {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.825rem;
+    font-weight: 700;
+    border-radius: 50%;
+    align-self: start;
+    justify-self: start;
+    position: relative;
+    left: -1rem;
+    background-color: rgb(29, 28, 28);
+    color: white;
+    border: 0.125rem;
 }
