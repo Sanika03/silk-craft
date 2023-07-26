@@ -10,15 +10,11 @@ import { faMinusCircle, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
 import { CartContext } from "../contexts/cartContext";
 import { WishlistContext } from "../contexts/wishlistContext";
-import { ProductContext } from "../contexts/productContext";
 import { useAuth } from "../contexts/authContext";
 
 export const Cart = () => {
-  const { incDecCartHandler, deleteCartHandler, isCartLoading } = useContext(CartContext);
+  const { incDecCartHandler, deleteCartHandler, isCartLoading, cartItems } = useContext(CartContext);
   const { postWishlistHandler } = useContext(WishlistContext);
-  const { products } = useContext(ProductContext)
-
-  const cartData = products.filter((el) => el.carted);
 
   const {token} = useAuth();
   
@@ -28,11 +24,11 @@ export const Cart = () => {
     navigate(`/products/${item._id}`);
   }
 
-  const getTotalMrp = () => cartData.reduce((acc, curr) => acc + Number(curr.price), 0);
+  const getTotalMrp = () => cartItems.reduce((acc, curr) => acc + Number(curr.price), 0);
 
-  const getDiscount = () => cartData.reduce((acc, curr) => acc + Number(curr.price - curr.discountedPrice), 0);
+  const getDiscount = () => cartItems.reduce((acc, curr) => acc + Number(curr.price - curr.discountedPrice), 0);
 
-  const getTotalAmount = () => cartData.reduce((acc, curr) => acc + Number(curr.discountedPrice), 0);
+  const getTotalAmount = () => cartItems.reduce((acc, curr) => acc + Number(curr.discountedPrice), 0);
 
   const handleIncDec = (product, action) => {
     if(action === "increment") {
@@ -61,14 +57,14 @@ export const Cart = () => {
       product.carted = false;
       product.qty--;
       toast.success('Item Moved To Wishlist!');
-    } else if (product.wished === true) {
+    } else {
       toast.warning('Item already exists in Wishlist!');
     }
   }
 
   const getProducts = () => (
     <div className="cart-main-container">
-      {cartData.length !== 0 && (cartData.map((product) =>
+      {cartItems && (cartItems.map((product) =>
         {
           const { _id, title, price, discountedPrice, imageLink, qty } = product;
           return (
@@ -107,7 +103,7 @@ export const Cart = () => {
     </div>
   )
 
-  const emptyCartMessage = () => cartData.length === 0 && (
+  const emptyCartMessage = () => cartItems.length < 1 && (
     <div className="empty-cart-container">
       <img src="/images/optional/emptyCart.jpg" className="cart-image" alt="Empty cart"/>
       <h2 className="empty-cart-text">It feels so light!</h2>
@@ -116,13 +112,12 @@ export const Cart = () => {
     </div>
   )
 
-  const getPriceCard = () => (cartData.length > 0 && (
+  const getPriceCard = () => (cartItems.length > 0 && (
     <div className="price-card">
       <h3 className="price-card-title">Price Details</h3>
-      <p className="item-text">({cartData.length} item
-      {cartData.length > 1 ? "s" : null})</p>
+      <p className="item-text">({cartItems.length} item
+      {cartItems.length > 1 ? "s" : null})</p>
       <hr/>
-        {/* <div className="price-details"> */}
           <div className="price-container">
             <p className="text-price-details">Total MRP</p>
             <p className="text-price-details">Rs. {getTotalMrp()}</p>
@@ -138,11 +133,10 @@ export const Cart = () => {
           </div>
           <hr/>
           <button onClick={() => navigate("/checkout/userAddress")} className="checkout-button">Checkout</button>
-        {/* </div> */}
     </div>
   ))
 
-  const getCartTitle = () => cartData.length > 0 && <h2 className="cart-title">MY CART ({cartData.length})</h2>
+  const getCartTitle = () => cartItems.length > 0 && <h2 className="cart-title">MY CART ({cartItems.length})</h2>
 
   const getLoader = () => isCartLoading && <img src="/images/loader/loader.gif" className="loader" alt="loader"/>  
   
